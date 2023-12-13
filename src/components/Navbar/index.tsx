@@ -11,6 +11,7 @@ import { FaFacebook, FaPhone } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import Logo from "@/assets/ccc_logo.png";
 import { MaxWidthWrapper } from "../Container";
+import Link from "next/link";
 
 const Navbar = () => {
  
@@ -20,7 +21,9 @@ const Navbar = () => {
       {/* main nav */}
       <TopNavContainer>
         <span className="bar">
-          <MaxWidthWrapper style={{ display: "flex", justifyContent: "flex-end" }}>
+          <MaxWidthWrapper
+            style={{ display: "flex", justifyContent: "flex-end" }}
+          >
             <a>
               <FaPhone size={18} />
               863-808-766
@@ -34,16 +37,17 @@ const Navbar = () => {
         </span>
 
         <section>
-          <Image
-            src={Logo}
-            width="200"
-            alt="Clari's Cleaning Crew logo"
-            priority
-            quality={100}
-          />
+          <Link href='/'>
+            <Image
+              src={Logo}
+              width="200"
+              alt="Clari's Cleaning Crew logo"
+              priority
+              quality={100}
+            />
+          </Link>
 
           <Links />
-
         </section>
       </TopNavContainer>
 
@@ -51,17 +55,17 @@ const Navbar = () => {
       <BottomNavContainer>
         <button>
           <a>
-            <FaFacebook size={38}/>
+            <FaFacebook size={38} />
           </a>
         </button>
         <button>
           <a>
-            <FaPhone size={40}/>
+            <FaPhone size={40} />
           </a>
         </button>
         <button>
           <a>
-            <IoIosMail size={38}/>
+            <IoIosMail size={38} />
           </a>
         </button>
       </BottomNavContainer>

@@ -5,6 +5,7 @@ import './globals.css'
 import ClientProviders from '@/state/providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { MaxWidthWrapper } from '@/components/Container'
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -24,10 +25,28 @@ export default function RootLayout({
       <body className={openSans.className}>
         <ClientProviders>
           <Navbar />
-          {children}
+
+          <MaxWidthWrapper style={{height: '900px', paddingTop: '132px'}}>{children}</MaxWidthWrapper>
           <Footer />
         </ClientProviders>
       </body>
     </html>
   );
 }
+
+
+// Keller Williams Realty Lakeland
+
+// FHS/Mazzella 
+
+// SouthState Bank Bartow
+
+// Henry Company
+
+// Firestone Lakeland
+
+// Better Earth 
+
+// Children and Teen Dental, Lakeland and Winter Haven
+
+// https://www.melaleuca.com/productstore/cleaning-and-laundry

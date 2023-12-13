@@ -3,7 +3,7 @@
 import styled from "styled-components";
 
 export const TopNavContainer = styled.nav`
-  /* position: fixed; */
+  position: fixed;
   background: ${({ theme }) => theme.colors.white};
   width: 100vw;
 
@@ -11,7 +11,7 @@ export const TopNavContainer = styled.nav`
   flex-direction: column;
   align-items: center;
 
-   .bar {
+  .bar {
     font-size: 0.85rem;
     width: 100%;
     padding: 0.5rem 1rem;
@@ -23,7 +23,7 @@ export const TopNavContainer = styled.nav`
 
     a {
       align-self: flex-end;
-      margin: 0 .75rem;
+      margin: 0 0.75rem;
       width: fit-content;
       height: 20px;
       display: flex;
@@ -39,7 +39,7 @@ export const TopNavContainer = styled.nav`
   }
 
   section {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,7 +59,7 @@ export const LinkWrapper = styled.div`
     background-color: transparent;
     color: ${({ theme }) => theme.colors.primary};
 
-    @media screen and (min-width: ${({ theme }) => theme.bpts.md}) {
+    @media screen and (min-width: ${({ theme }) => theme.bpts.lg}) {
       display: none;
     }
   }
@@ -69,10 +69,11 @@ export const LinkWrapper = styled.div`
     button {
       all: unset;
       font-size: 1rem;
+      font-weight: 600;
 
       margin: 0 0.5rem;
       padding: 0.5rem 0.5rem;
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       border-bottom: 2px solid transparent;
 
       transition: border 100ms ease-in, color 100ms ease-in;
@@ -90,7 +91,7 @@ export const LinkWrapper = styled.div`
   }
 
   .linkList {
-    @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {
+    @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
       display: none;
     }
   }
@@ -137,6 +138,7 @@ export const LinkWrapper = styled.div`
 export const BottomNavContainer = styled.nav`
   position: fixed;
   bottom: 0;
+  z-index: 5;
   width: 100vw;
   height: 75px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -146,6 +148,8 @@ export const BottomNavContainer = styled.nav`
   align-items: center;
 
   transition: bottom 300ms ease-in;
+
+  filter: drop-shadow(2px 2px 5px #000000);
 
   button {
     background-color: transparent;

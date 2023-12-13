@@ -7,6 +7,7 @@ import routes from '@/constants/routes';
 import { LinkWrapper } from './Navbar.styles';
 import { RxHamburgerMenu } from "react-icons/rx";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import QuoteBtn from "@/components/Buttons/Quote";
 
 
 export const Links = () => {
@@ -16,10 +17,10 @@ export const Links = () => {
   const [openNav,setOpenNav] = useState(false);
 
   useEffect(() => {
-    if (openNav && !desiredBp("md")) {
+    if (openNav && !desiredBp("lg")) {
       setOpenNav(false);
     }
-  }, [desiredBp("md")]);
+  }, [desiredBp("lg")]);
 
   useEffect(() => setOpenNav(false), [pathname]);
   
@@ -27,19 +28,23 @@ export const Links = () => {
   return (
     <LinkWrapper>
       <span className={openNav ? "hamList" : "linkList"}>
-        {routes.map((val, ind) => (
-          <Link href={val.route}>
-            <button key={ind} data-isactive={pathname === val.route}>
-              {val.label}
-            </button>
-          </Link>
-        ))}
+        {routes.map((val, ind) => {
+          
+          if(val.showNav)
+            return(
+              <Link key={ind} href={val.route}>
+                <button data-isactive={pathname === val.route}>{val.label}</button>
+              </Link>
+          )
+        })}
+        <QuoteBtn/>
       </span>
       <button
         className="hamburger"
         onClick={() => {
           setOpenNav((old) => !old);
         }}
+        
       >
         <RxHamburgerMenu size={32} />
       </button>
