@@ -48,7 +48,7 @@ const Footer = () => {
             </Link>
           ))}
         </section>
-        
+
         {/* logo */}
         <section>
           {/* <Image
@@ -80,13 +80,15 @@ const Footer = () => {
             />
           </a>
 
-          <p>We At Clari’s Cleaning Use Green and Safe Cleaning Products</p>
+          <p>
+            We At Clari&apos;s Cleaning Use Green and Safe Cleaning Products
+          </p>
         </section>
       </FooterWrap>
 
       <span>
         <a>Designed & Built By Rey Sanchez</a>
-        <p>©2023 Clari's Cleaning - All Rights Reserved</p>
+        <p>©2023 Clari&apos;s Cleaning - All Rights Reserved</p>
       </span>
     </FooterConainer>
   );
