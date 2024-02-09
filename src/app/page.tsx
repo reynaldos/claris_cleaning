@@ -8,11 +8,11 @@ export default function Home() {
   return (
     <HomeWrapper>
       <section className="hero">
-        <Image src={HeroBG} alt="hero background"/>
+        <Image src={HeroBG} alt="hero background" />
       </section>
       <section>Services Preview</section>
       <section>
-        Clari's Cleaning is Trusted By
+        Clari&apos;s Cleaning is Trusted By
         <BrandSwiper />
       </section>
     </HomeWrapper>
