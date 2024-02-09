@@ -26,7 +26,10 @@ export default function RootLayout({
         <ClientProviders>
           <Navbar />
 
-          <MaxWidthWrapper style={{height: '900px', paddingTop: '132px'}}>{children}</MaxWidthWrapper>
+          <MaxWidthWrapper className='bodyWrap'>
+             {children}
+          </MaxWidthWrapper>
+          
           <Footer />
         </ClientProviders>
       </body>
