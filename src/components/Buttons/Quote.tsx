@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
   background-color: ${({ theme }) => theme.colors.secondary};
   border-radius: ${({ theme }) => theme.borderRadius};
   padding: 0.75rem 0.5rem;
-  transition: background-color 100ms ease-in;
+  transition: background-color 100ms ease-in-out;
   max-width: 360px;
   width: 100%;
 

@@ -1,4 +1,3 @@
-
 const blue = "#0095D5";
 const blue900 = "#026F9D";
 
@@ -7,15 +6,13 @@ const green900 = "#649502";
 
 const white = "#ffffff";
 const white300 = "#f7f8f9";
-const black = ""
- const grey900 = "#373a4a";
- const grey700 = "#858899";
- const grey400 = "#c3c4c9";
- const grey300 = "#d9d9d9";
- const grey200 = "#ededed";
- const grey100 = "#f2f1f4";
-
-
+const black = "";
+const grey900 = "#373a4a";
+const grey700 = "#858899";
+const grey400 = "#c3c4c9";
+const grey300 = "#d9d9d9";
+const grey200 = "#ededed";
+const grey100 = "#f2f1f4";
 
 export const globalTheme = {
   maxWidth: "1200px",

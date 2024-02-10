@@ -13,7 +13,10 @@ export const metadata: Metadata = {
   title: "Clari's Cleaning Crew",
   description:
     "Janitorial Services: Contact Clari's Cleaning Company for the best in janitorial services, commercial cleaning services and waste disposal.",
+    icons:[]
 };
+
+<link rel="icon" href="/favicon.ico" sizes="any" />;
 
 export default function RootLayout({
   children,

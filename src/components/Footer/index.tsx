@@ -1,6 +1,6 @@
 import React from 'react'
 import { FooterConainer, FooterWrap } from './Footer.styles'
-import routes from '@/constants/routes';
+import routes from '@/components/Navbar/routes';
 import Link from 'next/link';
 import Image from "next/image";
 import Logo from "@/assets/ccc_logo.png";
