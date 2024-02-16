@@ -95,5 +95,9 @@ export const ContentWrap = styled.div`
       text-align: center;
       font-size: 48px;
     }
+
+    span{
+      justify-content: space-between;
+    }
   }
 `;
