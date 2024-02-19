@@ -64,6 +64,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
       font-style: normal;
       font-weight: 700;
       line-height: 1.1;
+      white-space: pre-wrap;
     }
 
     p {
@@ -136,6 +137,7 @@ export const SoloSectionWrap = styled(MaxWidthWrapper)`
     font-weight: 700;
     line-height: normal;
     text-align: center;
+    white-space: pre-wrap;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
