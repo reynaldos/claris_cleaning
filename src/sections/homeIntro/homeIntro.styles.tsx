@@ -22,10 +22,13 @@ export const ServiceWrap = styled.div`
   @media screen and (max-width: 630px) {
     width: 390px;
   }
+<<<<<<< HEAD
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
     width: 100%;
   }
+=======
+>>>>>>> 934c7bfa0320b33302df2e41c7b42809f8b526b5
 `;
 
 export const ServiceButton = styled.button`
