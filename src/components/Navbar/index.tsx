@@ -13,7 +13,7 @@ import { IoIosMail } from "react-icons/io";
 import Logo from "@/assets/ccc_logo.png";
 import { MaxWidthWrapper } from "../Container";
 
-import { BUSINESS_EMAIL, BUSINESS_PHONE, PAGE_ROUTE } from "@/constants/info";
+import { BUSINESS_EMAIL, BUSINESS_PHONE, FACEBOOK_LINK, PAGE_ROUTE } from "@/constants/info";
 import { formatPhoneNumber } from "@/utils/sting";
 
 const Navbar = () => {
@@ -59,17 +59,19 @@ const Navbar = () => {
       {/* mobile bottom nav */}
       <BottomNavContainer>
         <button>
-          <a>
+          <a href={FACEBOOK_LINK} target="_blank">
             <FaFacebook size={38} />
           </a>
         </button>
         <button>
-          <a>
+          <a href={`tel:${BUSINESS_PHONE}`}>
             <FaPhone size={40} />
           </a>
         </button>
         <button>
-          <a>
+          <a
+            href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
+          >
             <IoIosMail size={38} />
           </a>
         </button>
