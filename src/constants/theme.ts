@@ -14,6 +14,8 @@ const grey300 = "#d9d9d9";
 const grey200 = "#ededed";
 const grey100 = "#f2f1f4";
 
+const gold400 = "#FBB032";
+
 export const globalTheme = {
   maxWidth: "1200px",
   borderRadius: "100px",
@@ -38,6 +40,8 @@ export const globalTheme = {
     grey400,
     grey700,
     grey900,
+    
+    gold400,
   },
 
   // textColor

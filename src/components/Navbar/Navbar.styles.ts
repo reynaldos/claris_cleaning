@@ -7,6 +7,7 @@ export const TopNavContainer = styled.nav`
   z-index: 5;
   background: ${({ theme }) => theme.colors.white};
   width: 100vw;
+  box-shadow: 0px 0px 4cap 0px rgba(0, 0, 0, 0.25);
 
   display: flex;
   flex-direction: column;

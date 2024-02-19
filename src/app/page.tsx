@@ -1,12 +1,19 @@
-
 import Link from "next/link";
 import { HomeWrapper, BannerSection, ContentWrap } from "./page.style";
 
-import BrandSwiper from "@/components/Swiper/BrandSwiper";
+import { PAGE_ROUTE } from "@/constants/info";
+
 import ThumbUpIcon from "@/assets/icons/thumbUp";
 import StarIcon from "@/assets/icons/star";
 import CheckBoxIcon from "@/assets/icons/checkBox";
 import Button from "@/components/Buttons";
+
+// sections
+import ServiceArea from "@/sections/serviceArea";
+import GreenCleaning from "@/sections/greenCleaning";
+import HomeIntro from "@/sections/homeIntro";
+import Testimonials from "@/sections/testimonials";
+import TrustedBrandsSection from "@/sections/trustedBrands";
 
 export default function Home() {
   return (
@@ -32,17 +39,21 @@ export default function Home() {
               <p>Trustworthy</p>
             </div>
           </span>
-          <Link href={'/free-quote'}>
+          <Link href={PAGE_ROUTE.FREE_QUOTE}>
             <Button>Book Your Cleaning Today</Button>
           </Link>
         </ContentWrap>
       </BannerSection>
 
-      <section>Services Preview</section>
-      <section>
-        Clari&apos;s Cleaning is Trusted By
-        <BrandSwiper />
-      </section>
+      <HomeIntro />
+
+      <ServiceArea />
+
+      <Testimonials />
+
+      <GreenCleaning />
+
+      <TrustedBrandsSection />
     </HomeWrapper>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 import {
   BottomNavContainer,
@@ -11,7 +12,9 @@ import { FaFacebook, FaPhone } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import Logo from "@/assets/ccc_logo.png";
 import { MaxWidthWrapper } from "../Container";
-import Link from "next/link";
+
+import { BUSINESS_EMAIL, BUSINESS_PHONE, PAGE_ROUTE } from "@/constants/info";
+import { formatPhoneNumber } from "@/utils/sting";
 
 const Navbar = () => {
  
@@ -24,20 +27,22 @@ const Navbar = () => {
           <MaxWidthWrapper
             style={{ display: "flex", justifyContent: "flex-end" }}
           >
-            <a>
+            <a href={`tel:${BUSINESS_PHONE}`}>
               <FaPhone size={18} />
-              863-808-766
+              {formatPhoneNumber(BUSINESS_PHONE)}
             </a>
 
-            <a>
+            <a
+              href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
+            >
               <IoIosMail size={28} />
-              gabriel@clariscleaning.com
+              {BUSINESS_EMAIL}
             </a>
           </MaxWidthWrapper>
         </span>
 
         <section>
-          <Link href='/'>
+          <Link href={PAGE_ROUTE.HOME}>
             <Image
               src={Logo}
               width="200"

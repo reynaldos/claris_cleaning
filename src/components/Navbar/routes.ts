@@ -1,9 +1,10 @@
+import { PAGE_ROUTE } from "@/constants/info";
 
 const navRoutes = [
-  { showNav: true, label: "Home", route: "/" },
-  { showNav: true, label: "About", route: "/about" },
-  { showNav: true, label: "Services", route: "/services" },
-  { showNav: false, label: "Contact", route: "/contact" },
+  { label: "Home", route: PAGE_ROUTE.HOME},
+  { label: "About", route: PAGE_ROUTE.ABOUT },
+  { label: "Services", route: PAGE_ROUTE.SERVICES},
+  { label: "Contact Us", route: PAGE_ROUTE.CONTACT },
 ];  
 
 export default navRoutes;

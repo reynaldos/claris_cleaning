@@ -2,7 +2,9 @@
 
 import styled from "styled-components";
 
-export const HomeWrapper = styled.div``;
+export const HomeWrapper = styled.div`
+
+`;
 
 export const BannerSection = styled.section`
   height: calc(100vh - 125px);
@@ -70,7 +72,7 @@ export const ContentWrap = styled.div`
   }
 
   button {
-    font-size: 24px;
+    font-size: 1.25rem;
     padding: 24px 18px;
   }
 
@@ -83,7 +85,7 @@ export const ContentWrap = styled.div`
     }
 
     button {
-      font-size: 18px;
+      font-size: 1.1rem;
       padding: 16px;
     }
   }
