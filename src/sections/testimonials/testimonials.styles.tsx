@@ -26,11 +26,7 @@ export const SectionContainer = styled.section`
 
 export const SectionWrapper = styled(MaxWidthWrapper)`
   width: 100%;
-
-
-  &>span{
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-  }
+  height: 275px;
+  background-color: transparent;
+  overflow-x: hidden;
 `;

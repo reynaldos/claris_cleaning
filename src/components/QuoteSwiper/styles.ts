@@ -7,29 +7,36 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 export const SwiperStyled = styled(Swiper)`
-  position: relative;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  height: 100%;
-  width: calc(150% - 4rem);
-  margin: 0 2rem;
+  width: 150%;
   padding: 1rem;
-  overflow-y: visible !important;
+  overflow: visible !important;
 
-  -webkit-mask-image: linear-gradient(
+  /* -webkit-mask-image: linear-gradient(
     to right,
     transparent,
-    black 1rem,
-    black calc(100% - 1rem),
+    black calc(42% + 20px),
+    black calc(58% - 20px),
     transparent
   );
+
   mask-image: linear-gradient(
     to right,
     transparent,
-    black 1rem,
-    black calc(100% - 1rem),
+    black calc(42% + 20px),
+    black calc(58% - 20px),
     transparent
-  );
+  ); */
+
+  @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+    width: 100%;
+    transform: unset;
+    left: 0;
+    mask-image: unset;
+    -webkit-mask-image: unset;
+  }
 `;
 
 export const SwiperSlideStyled = styled(SwiperSlide)`
@@ -41,10 +48,21 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(100px);
 
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.15));
+  -webkit-filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.15));
+
+  transition: opacity 300ms ease-in-out;
+
+  @media screen and (min-width: ${({ theme }) => theme.bpts.sm}) {
+    &:not(.swiper-slide-next) {
+      opacity: 0.35;
+    }
+  }
+
   position: relative;
   padding: 36px 24px;
   height: 244px;
-  min-width: 390px !important;
+  /* min-width: 390px !important; */
 
   svg {
     height: 50px;
@@ -136,7 +154,7 @@ export const BtnWrap = styled.div`
   button {
     background-color: transparent;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 100%;
     height: 40px;
     width: 40px;
@@ -152,7 +170,9 @@ export const BtnWrap = styled.div`
     }
   }
 
-  .swiper-button-lock {
-    display: block !important;
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.33);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(100px);
   }
 `;

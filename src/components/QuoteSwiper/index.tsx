@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { SwiperSlideStyled, SwiperStyled, BtnWrap } from "./styles";
-import { Autoplay, EffectCoverflow, Mousewheel, Navigation,Pagination } from "swiper/modules";
+import { Autoplay, Mousewheel, Navigation } from "swiper/modules";
 import QuotesIcon from "@/assets/icons/quotes";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
@@ -72,9 +72,6 @@ const QuoteSwiper = () => {
     },
   ];
 
-   const navigationPrevRef = React.useRef(null);
-   const navigationNextRef = React.useRef(null);
-
   return (
     <>
       {QuoteList?.length > 0 && (
@@ -84,41 +81,23 @@ const QuoteSwiper = () => {
             prevEl: ".prev",
             nextEl: ".next",
           }}
-          // onBeforeInit={(swiper) => {
-          //   if (swiper.params.navigation) {
-          //     swiper.params.navigation = {
-          //       nextEl: navigationNextRef.current,
-          //       prevEl: navigationPrevRef.current
-          //     };
-          //   }
-          // }}
           loop={true}
           autoplay={{
-            delay: 10000,
+            delay: 20000,
           }}
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={"20px"}
           lazyPreloadPrevNext={1}
           mousewheel={{
             forceToAxis: true,
           }}
-          // breakpoints={{
-          //   // when window width is >= 430px
-          //   430: {
-          //     slidesPerView: 2,
-          //     spaceBetween: 20,
-          //   },
-          //   // when window width is >= 767px
-          //   767: {
-          //     slidesPerView: 3,
-          //     spaceBetween: 30,
-          //   },
-          //   // when window width is >= 1000px
-          //   1000: {
-          //     slidesPerView: 4,
-          //     spaceBetween: 40,
-          //   },
-          // }}
+          breakpoints={{
+            // when window width is >= 430px
+            576: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }}
         >
           {QuoteList.map((quote, index: number) => (
             <SwiperSlideStyled key={index}>

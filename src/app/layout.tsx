@@ -5,7 +5,8 @@ import './globals.css'
 import ClientProviders from '@/state/providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { MaxWidthWrapper } from '@/components/Container'
+import { BodyWrap } from './layout.styles'
+
 
 const openSans = Inter({ subsets: ["latin"] });
 
@@ -29,9 +30,9 @@ export default function RootLayout({
         <ClientProviders>
           <Navbar />
 
-          <MaxWidthWrapper className='bodyWrap'>
+          <BodyWrap className='bodyWrap'>
              {children}
-          </MaxWidthWrapper>
+          </BodyWrap>
           
           <Footer />
         </ClientProviders>

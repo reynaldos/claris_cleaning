@@ -1,7 +1,6 @@
-import React from 'react'
-import { SectionContainer, SectionWrapper } from './testimonials.styles'
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
-import QuoteSwiper from '@/components/QuoteSwiper'
+import React from "react";
+import { SectionContainer, SectionWrapper } from "./testimonials.styles";
+import QuoteSwiper from "@/components/QuoteSwiper";
 
 const Testimonials = () => {
   return (
@@ -11,6 +10,6 @@ const Testimonials = () => {
       </SectionWrapper>
     </SectionContainer>
   );
-}
+};
 
-export default Testimonials
+export default Testimonials;

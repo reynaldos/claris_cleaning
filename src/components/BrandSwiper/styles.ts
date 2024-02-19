@@ -11,6 +11,7 @@ export const SwiperStyled = styled(Swiper)`
   padding: 1rem;
 
   .swiper-pagination {
+    margin-top: 12px;
     height: 30px;
     display: flex;
     justify-content: center;
