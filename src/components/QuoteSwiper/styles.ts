@@ -10,25 +10,9 @@ export const SwiperStyled = styled(Swiper)`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 150%;
+  width: 133%;
   padding: 1rem;
   overflow: visible !important;
-
-  /* -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black calc(42% + 20px),
-    black calc(58% - 20px),
-    transparent
-  );
-
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black calc(42% + 20px),
-    black calc(58% - 20px),
-    transparent
-  ); */
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
     width: 100%;
@@ -43,8 +27,7 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
   z-index: 1;
   border-radius: 42px;
   border: 3px solid #fff;
-  /* background: rgba(255, 255, 255, 0.13); */
-  background-color: rgba(255, 255, 255, 0.33);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(100px);
 
@@ -55,7 +38,7 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
 
   @media screen and (min-width: ${({ theme }) => theme.bpts.sm}) {
     &:not(.swiper-slide-next) {
-      opacity: 0.35;
+      opacity: 0.3;
     }
   }
 
