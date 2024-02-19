@@ -11,6 +11,10 @@ import { FaClock, FaFacebook, FaInstagram, FaLocationDot, FaPhone } from 'react-
 import { IoIosMail } from 'react-icons/io';
 import Button from '../Buttons';
 
+import { BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_PHONE, DEV_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, PAGE_ROUTE, SURVEY_LINK } from '@/constants/info';
+import navRoutes from '@/components/Navbar/routes';
+import { formatPhoneNumber } from '@/utils/sting';
+
 
 const Footer = () => {
   return (
@@ -22,10 +26,10 @@ const Footer = () => {
             <Image src={Logo} alt={"Claris Cleaning Crew Logo"} />
           </div>
           <div>
-            <a>
+            <a href={FACEBOOK_LINK} target="_blank">
               <FaFacebook size={40} />
             </a>
-            <a>
+            <a href={INSTAGRAM_LINK} target="_blank">
               <FaInstagram size={40} />
             </a>
           </div>
@@ -34,19 +38,20 @@ const Footer = () => {
         {/* nav routes */}
         <section className="routes">
           <div>
-            <Link href={"/"}>Home</Link>
-            <Link href={"/about"}>About</Link>
-            <Link href={"/services"}>Services</Link>
-            <Link href={"/contact"}>Contact Us</Link>
+            {navRoutes.map((link, index) => (
+              <Link key={index} href={link.route}>
+                {link.label}
+              </Link>
+            ))}
           </div>
           <div>
-            <a href={""}>
+            <a href={SURVEY_LINK} target="_blank">
               <Button>Take Survey</Button>
             </a>
-            <Link href={"/free-quote"}>
+            <Link href={PAGE_ROUTE.FREE_QUOTE}>
               <Button>Get A Free Quote</Button>
             </Link>
-            <a href={""}>
+            <a href={`tel:${BUSINESS_PHONE}`}>
               <Button>
                 <FaPhone size={18} />
                 Call Us Now
@@ -57,21 +62,21 @@ const Footer = () => {
 
         {/* about */}
         <section className="infoStrip">
-          <a>
+          <a href={`tel:${BUSINESS_PHONE}`}>
             <FaPhone size={18} />
-            863-808-766
+            {formatPhoneNumber(BUSINESS_PHONE)}
           </a>
 
-          <a>
+          <a
+            href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
+          >
             <IoIosMail size={24} />
-            gabriel@clariscleaning.com
+            {BUSINESS_EMAIL}
           </a>
 
           <a>
             <FaLocationDot size={20} />
-            {/* 2861 Kinsley Dr,  */}
-            Lakelend, FL
-            {/* 33813 */}
+            {BUSINESS_ADDRESS}
           </a>
           {/* 
           <a>
@@ -82,10 +87,13 @@ const Footer = () => {
       </FooterWrap>
 
       <span>
-        <a href="https://reysanchez.dev" target="_blank">
+        <a href={DEV_LINK} target="_blank">
           Designed & Built By Rey Sanchez
         </a>
-        <p>©2023 Clari&apos;s Cleaning - All Rights Reserved</p>
+        <p>
+          ©{new Date().getFullYear()} Clari&apos;s Cleaning - All Rights
+          Reserved
+        </p>
       </span>
     </FooterConainer>
   );

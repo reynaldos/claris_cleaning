@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter, Open_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
 import ClientProviders from '@/state/providers'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { MaxWidthWrapper } from '@/components/Container'
+import { BodyWrap } from './layout.styles'
 
-const openSans = Open_Sans({ subsets: ["latin"] });
+
+const openSans = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Clari's Cleaning Crew",
@@ -29,9 +30,9 @@ export default function RootLayout({
         <ClientProviders>
           <Navbar />
 
-          <MaxWidthWrapper className='bodyWrap'>
+          <BodyWrap className='bodyWrap'>
              {children}
-          </MaxWidthWrapper>
+          </BodyWrap>
           
           <Footer />
         </ClientProviders>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import {  SwiperSlideStyled, SwiperStyled } from "@/components/Swiper/styles";
+import {  SwiperSlideStyled, SwiperStyled } from "@/components/BrandSwiper/styles";
 import { Autoplay, EffectCoverflow, Mousewheel, Navigation,Pagination } from "swiper/modules";
 
 import BrandList from "@/assets/trustedBrands";
@@ -20,7 +20,7 @@ const BrandSwiper = () => {
           autoplay={{
             delay: 5000
           }}
-          slidesPerView={1}
+          slidesPerView={2}
           spaceBetween={"20px"}
           lazyPreloadPrevNext={1}
           mousewheel={{
