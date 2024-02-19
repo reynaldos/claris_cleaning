@@ -23,7 +23,7 @@ export const SwiperStyled = styled(Swiper)`
       height: 15px;
       width: 15px;
       border-radius: 100%;
-			cursor: pointer;
+      cursor: pointer;
     }
 
     .swiper-pagination-bullet-active {
@@ -45,6 +45,11 @@ export const SwiperStyled = styled(Swiper)`
     black calc(100% - 1rem),
     transparent
   );
+
+  @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+    width: 100%;
+    margin: unset;
+  }
 `;
 
 export const SwiperSlideStyled = styled(SwiperSlide)`

@@ -73,7 +73,7 @@ export const ContentWrap = styled.div`
 
   button {
     font-size: 1.25rem;
-    padding: 24px 18px;
+    padding: 18px;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {

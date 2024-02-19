@@ -11,7 +11,12 @@ export const SectionContainer = styled.section<{ $backgroundColor?: string }>`
   justify-content: center;
   align-items: center;
   gap: 48px;
-  background-color: ${({ $backgroundColor })=> $backgroundColor};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
+
+  @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+    padding: 42px 16px;
+    gap: 32px;
+  }
 `;
 
 
@@ -31,7 +36,6 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
     display: flex;
     justify-content: center;
     flex: 1;
-    outline: 1px solid red;
     max-width: ${({ $maxImageWidth }) => $maxImageWidth};
 
     img {
@@ -51,26 +55,39 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
     gap: 8px;
 
     max-width: 600px;
-    outline: 1px solid red;
+
     h2 {
       color: #000;
 
       /* Title */
-      font-size: 42px;
+      font-size: 2.6rem;
       font-style: normal;
       font-weight: 700;
-      line-height: normal;
+      line-height: 1.1;
     }
 
     p {
       color: #000;
 
       /* BodyText */
-      font-size: 20px;
+      font-size: 1.25rem;
       font-style: normal;
       font-weight: 500;
       line-height: 1.5; /* 150% */
       white-space: pre-wrap;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
+    /* content */
+    & > div:last-child {
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
     }
   }
 
@@ -118,5 +135,13 @@ export const SoloSectionWrap = styled(MaxWidthWrapper)`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    text-align: center;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
+    gap: 32px;
+    h2 {
+      font-size: 2rem;
+    }
   }
 `;

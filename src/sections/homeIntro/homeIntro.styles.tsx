@@ -19,8 +19,6 @@ export const ServiceButton = styled.button`
   border: none;
   cursor: pointer;
 
-  outline: 1px solid red;
-
   svg {
     width: 40px;
     height: 40px;

@@ -23,7 +23,7 @@ export const globalTheme = {
     xs: "430px",
     sm: "576px",
     md: "767px",
-    lg: "1000px",
+    lg: "1200px",
     xl: "1500px",
   },
   colors: {
