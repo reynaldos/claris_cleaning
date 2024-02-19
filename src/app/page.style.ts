@@ -2,10 +2,6 @@
 
 import styled from "styled-components";
 
-export const HomeWrapper = styled.div`
-
-`;
-
 export const BannerSection = styled.section`
   height: calc(100vh - 125px);
   min-height: 400px;

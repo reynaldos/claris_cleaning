@@ -1,12 +1,21 @@
-import Link from 'next/link';
-import React from 'react'
 
-const About = () => {
+
+// sections
+import AboutIntro from "@/sections/aboutIntro";
+import GreenCleaning from "@/sections/greenCleaning";
+import OurTeam from "@/sections/ourTeam";
+import Testimonials from "@/sections/testimonials";
+
+export default function About() {
   return (
-    <div>
-      About
-    </div>
+    <>
+    
+      <AboutIntro/>
+      <OurTeam />
+      <Testimonials />
+
+      <GreenCleaning />
+
+    </>
   );
 }
-
-export default About

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HomeWrapper, BannerSection, ContentWrap } from "./page.style";
+import { BannerSection, ContentWrap } from "./page.style";
 
 import { PAGE_ROUTE } from "@/constants/info";
 
@@ -17,7 +17,7 @@ import TrustedBrandsSection from "@/sections/trustedBrands";
 
 export default function Home() {
   return (
-    <HomeWrapper>
+    <>
       <BannerSection>
         <ContentWrap>
           <h1>
@@ -54,6 +54,6 @@ export default function Home() {
       <GreenCleaning />
 
       <TrustedBrandsSection />
-    </HomeWrapper>
+    </>
   );
 }

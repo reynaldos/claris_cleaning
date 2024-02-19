@@ -1,8 +1,12 @@
-import Link from 'next/link';
-import React from 'react'
+// sections
+import GreenCleaning from "@/sections/greenCleaning";
+import Testimonials from "@/sections/testimonials";
 
-const Services = () => {
-  return <div>Services</div>;
+export default function Services() {
+  return (
+    <>
+    
+      <Testimonials />
+    </>
+  );
 }
-
-export default Services;

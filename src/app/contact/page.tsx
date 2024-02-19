@@ -1,8 +1,12 @@
-import Link from 'next/link';
-import React from 'react'
+// sections
+import ServiceArea from "@/sections/serviceArea";
+import Testimonials from "@/sections/testimonials";
 
-const Contact = () => {
-  return <div>Contact</div>;
+export default function Contact() {
+  return (
+    <>
+      <Testimonials />
+      <ServiceArea />
+    </>
+  );
 }
-
-export default Contact;
