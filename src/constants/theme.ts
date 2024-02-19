@@ -20,7 +20,7 @@ export const globalTheme = {
   maxWidth: "1200px",
   borderRadius: "100px",
   bpts: {
-    xs: "430px",
+    xs: "440px",
     sm: "576px",
     md: "767px",
     lg: "1200px",
