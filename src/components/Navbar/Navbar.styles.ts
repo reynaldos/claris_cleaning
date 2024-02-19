@@ -198,7 +198,7 @@ export const BottomNavContainer = styled.nav`
     }
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.bpts.sm}) {
+  @media screen and (min-width: ${({ theme }) => theme.bpts.xs}) {
     bottom: -125px;
   }
 `;

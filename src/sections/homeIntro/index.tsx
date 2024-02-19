@@ -34,18 +34,18 @@ const HomeIntro = () => {
       label: `Construction\nCleaning`,
       icon: <ConstructionIcon />,
     },
-    {
-      label: ``,
-      icon: <></>,
-    },
+    // {
+    //   label: ``,
+    //   icon: <></>,
+    // },
     {
       label: `Personalized\nCleaning`,
       icon: <BadgeIcon />,
     },
-    {
-      label: ``,
-      icon: <></>,
-    },
+    // {
+    //   label: ``,
+    //   icon: <></>,
+    // },
   ];
 
   return (
@@ -53,7 +53,7 @@ const HomeIntro = () => {
       title={"Professional Cleaning for a More Comfortable Life"}
       content={`At Clari's Cleaning Crew, we bring a commitment to excellence in transforming your home or office into a polished haven. Choose us for a refined and comfortable dwelling.`}
       backgroundColor={white300}
-      maxImageWidth="560px"
+      maxImageWidth="480px"
       image={{
         type: "img",
         src: HomeImg,

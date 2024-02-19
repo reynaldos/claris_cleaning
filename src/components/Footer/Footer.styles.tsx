@@ -49,12 +49,12 @@ export const FooterConainer = styled.footer`
     cursor: pointer;
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+  @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
     padding-bottom: 7rem;
   }
 `;
 
-export const FooterWrap = styled(MaxWidthWrapper)`
+export const FooterWrap = styled.div`
   position: relative;
   z-index: 5;
   padding-top: 3rem;
