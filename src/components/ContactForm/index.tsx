@@ -23,6 +23,9 @@ const ContactForm = () => {
   return (
     <FormWrap>
       <span>
+        <h2 className='title'>Chat with Us</h2>
+      </span>
+      <span>
         <TextInput
           label="Name"
           value={formProps.name}

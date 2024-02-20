@@ -13,8 +13,26 @@ const openSans = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Clari's Cleaning Crew",
   description:
-    "Janitorial Services: Contact Clari's Cleaning Company for the best in janitorial services, commercial cleaning services and waste disposal.",
-    icons:[]
+    "Cleaning Services: Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services.",
+  icons: [
+    {
+      sizes: "180x180",
+      url: "./logo/ccc_logo_180x180.png",
+      type: "image/png",
+    },
+    { sizes: "32x32", url: "./logo/ccc_logo_180x180.png", type: "image/png" },
+    { sizes: "16x16", url: "./logo/ccc_logo_180x180.png", type: "image/png" },
+  ],
+  openGraph: {
+    title: "Clari's Cleaning Crew",
+    images: "./assets/share.png",
+    description:
+      "Cleaning Services: Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services.",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+  },
 };
 
 <link rel="icon" href="/favicon.ico" sizes="any" />;

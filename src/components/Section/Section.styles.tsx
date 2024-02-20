@@ -38,7 +38,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
     flex: 1;
     max-width: ${({ $maxImageWidth }) => $maxImageWidth};
 
-    img {
+    >img {
       margin: auto;
       border-radius: 20px;
       height: fit-content;
@@ -56,7 +56,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
 
     max-width: 600px;
 
-    h2 {
+    >h2 {
       width: 100%;
       color: #000;
 
@@ -83,7 +83,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
   @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
     /* content */
     & > div:last-child {
-      h2 {
+      >h2 {
         font-size: 2rem;
       }
 
@@ -129,7 +129,7 @@ export const SoloSectionWrap = styled(MaxWidthWrapper)`
   flex-direction: column;
   gap: 36px;
 
-  h2 {
+  >h2 {
     width: 100%;
 
     color: #000;
@@ -145,7 +145,7 @@ export const SoloSectionWrap = styled(MaxWidthWrapper)`
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
     gap: 32px;
-    h2 {
+    >h2 {
       font-size: 2rem;
     }
   }
