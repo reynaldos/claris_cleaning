@@ -24,22 +24,22 @@ export const metadata: Metadata = {
 <meta name="theme-color" content="#000000" />;
 
 	// <!-- HTML Meta Tags -->
-<title>Clari's Cleaning Crew</title>;
-<meta name="description" content="Cleaning Services: Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services." />;
+<title>Clari&apos;s Cleaning Crew</title>;
+<meta name="description" content="Cleaning Services: Contact Clari&apos;s Cleaning Company for the best in residential, commercial, and construction cleaning services." />;
 
 // <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://claris-cleaning.vercel.app"/>;
 <meta property="og:type" content="website"/>;
-<meta property="og:title" content="Clari's Cleaning Crew"/>;
-<meta property="og:description" content="Cleaning Services: Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services."/>;
+<meta property="og:title" content="Clari&apos;s Cleaning Crew"/>;
+<meta property="og:description" content="Cleaning Services: Contact Clari&apos;s Cleaning Company for the best in residential, commercial, and construction cleaning services."/>;
 <meta property="og:image" content="https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.png?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791"/>;
 
 // <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image"/>;
 <meta property="twitter:domain" content="claris-cleaning.vercel.app"/>;
 <meta property="twitter:url" content="https://claris-cleaning.vercel.app"/>;
-<meta name="twitter:title" content="Clari's Cleaning Crew"/>;
-<meta name="twitter:description" content="Cleaning Services: Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services."/>;
+<meta name="twitter:title" content="Clari&apos;s Cleaning Crew"/>;
+<meta name="twitter:description" content="Cleaning Services: Contact Clari&apos;s Cleaning Company for the best in residential, commercial, and construction cleaning services."/>;
 <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.png?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791"/>;
 
 
