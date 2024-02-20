@@ -23,9 +23,10 @@ export const metadata: Metadata = {
     { sizes: "32x32", url: "./logo/ccc_logo_32x32.png", type: "image/png" },
     { sizes: "16x16", url: "./logo/ccc_logo_16x16.png", type: "image/png" },
   ],
+  
   openGraph: {
     title: "Clari's Cleaning Crew",
-    images: "./assets/share.png",
+    images:[{url: "./assets/share.png"}],
     description:
       "Cleaning Services: Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services.",
   },
