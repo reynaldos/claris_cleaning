@@ -88,6 +88,10 @@ export const CardContainer = styled.div`
     width: 300px;
     height: 475px;
 
+    .content {
+      padding: 24px;
+    }
+
     img {
       width: 100%;
       object-position: 45%;
