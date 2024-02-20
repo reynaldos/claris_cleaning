@@ -1,8 +1,10 @@
 // sections
 import Testimonials from "@/sections/testimonials";
-
 import HeroSection from "@/components/HeroSection";
+import QuoteTool from "@/sections/quoteTool";
+
 import { PAGE_ROUTE } from "@/constants/info";
+
 
 export default function Services() {
   return (
@@ -22,6 +24,8 @@ export default function Services() {
         }}
       />
       <Testimonials />
+
+      <QuoteTool />
     </>
   );
 }
