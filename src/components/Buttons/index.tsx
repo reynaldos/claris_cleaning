@@ -32,12 +32,17 @@ const StyledBtn = styled.button<{ hoverColor: string | undefined }>`
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  line-height: 1;
   letter-spacing: 0.12px;
   transition: all 300ms ease-in-out;
 
   &:hover {
     background-color: ${({ hoverColor, theme }) =>
       hoverColor ?? theme.colors.secondaryHover};
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {
+    font-size: 16px;
+    padding: 12px 16px;
   }
 `;

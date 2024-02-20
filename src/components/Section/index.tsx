@@ -13,7 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../Buttons";
 
-interface SectionButton {
+export interface SectionButton {
   linkType: "internal" | "external";
   href: string;
   label: string | any ;

@@ -43,7 +43,7 @@ export const VideoWrapper = styled.div`
 `;
 
 
-export const ButtonWrap = styled.div`
+export const ButtonWrap = styled.span`
   margin-top: 8px;
   display: flex;
   gap: 8px;

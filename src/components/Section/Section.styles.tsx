@@ -97,7 +97,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
   }
 `;
 
-export const ButtonWrap = styled.div`
+export const ButtonWrap = styled.span`
   display: flex;
   align-items: center;
   gap: 12px;

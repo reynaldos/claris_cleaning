@@ -1,8 +1,9 @@
 "use client";
 
+import bannerImages from "@/constants/bannerImages";
 import styled from "styled-components";
 
-export const BannerSection = styled.section`
+export const BannerSection = styled.section<{ $banner: string }>`
   height: calc(100vh - 125px);
   min-height: 400px;
   max-height: 675px;
@@ -19,7 +20,11 @@ export const BannerSection = styled.section`
       rgba(2, 111, 157, 0.15) 0%,
       rgba(2, 111, 157, 0.15) 100%
     ),
-    url("./assets/homeBanner.jpg"), lightgray 50% / cover no-repeat;
+    url(${({ $banner }) => `${bannerImages[$banner]}`});
+
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {
     height: 436px;
@@ -29,14 +34,15 @@ export const BannerSection = styled.section`
         rgba(2, 111, 157, 0.75) 0%,
         rgba(2, 111, 157, 0.75) 100%
       ),
-      url("./assets/homeBanner.jpg"), lightgray 0% / cover no-repeat;
+      url(${({ $banner }) => `${bannerImages[$banner]}`});
+    background-position: 40% 20%;
   }
-  background-position-x: 50% !important;
 `;
 
 export const ContentWrap = styled.div`
   color: white;
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
+  -webkit-filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
 
   width: 100%;
   max-width: ${({ theme }) => theme.maxWidth};
@@ -94,7 +100,7 @@ export const ContentWrap = styled.div`
       font-size: 48px;
     }
 
-    span{
+    span {
       justify-content: space-between;
     }
   }

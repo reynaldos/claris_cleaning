@@ -18,7 +18,7 @@ import TrustedBrandsSection from "@/sections/trustedBrands";
 export default function Home() {
   return (
     <>
-      <BannerSection>
+      <BannerSection $banner={'home'}>
         <ContentWrap>
           <h1>
             Clean Living
