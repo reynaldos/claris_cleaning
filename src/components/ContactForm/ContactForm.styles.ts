@@ -19,6 +19,10 @@ export const FormWrap = styled.form`
     display: flex;
     gap: 16px;
 
+    .title {
+      color: ${({ theme }) => theme.colors.white};
+    }
+
     @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {
       flex-wrap: wrap;
     }
