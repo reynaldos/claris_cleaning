@@ -13,11 +13,11 @@ export const CardContainer = styled.div`
   height: 320px;
 
   border-radius: 20px;
-  overflow: hidden;
   background-color: ${({ theme }) => theme.colors.white};
 
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
   -webkit-filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+  -ms-filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
 
   img {
     height: 100%;
