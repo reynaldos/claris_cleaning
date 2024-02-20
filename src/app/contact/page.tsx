@@ -6,6 +6,7 @@ import { formatPhoneNumber } from "@/utils/sting";
 // sections
 import ServiceArea from "@/sections/serviceArea";
 import Testimonials from "@/sections/testimonials";
+import ContactIntro from "@/sections/contactIntro";
 
 export default function Contact() {
   return (
@@ -29,7 +30,11 @@ export default function Contact() {
           href: `${BUSINESS_PHONE}`,
         }}
       />
+
+      <ContactIntro />
+
       <Testimonials />
+      
       <ServiceArea />
     </>
   );

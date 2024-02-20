@@ -9,6 +9,7 @@ const TrustedBrandsSection = () => {
   return (
     <SectionComponent
       title="Our Cleaning Services are Trusted by Top Brands"
+      titleAlign='center'
       sectionsType="single"
       backgroundColor={grey200}
     >
