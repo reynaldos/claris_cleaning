@@ -60,6 +60,8 @@ flex: 1;
     justify-content: center;
     gap: 12px;
 
+    min-height: 50px;
+
     a:last-child button {
       border: 2px solid ${({ theme }) => theme.colors.white};
       background-color: transparent;

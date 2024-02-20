@@ -1,13 +1,13 @@
 
-
-
 // sections
 import HeroSection from "@/components/HeroSection";
-import { PAGE_ROUTE } from "@/constants/info";
 import AboutIntro from "@/sections/aboutIntro";
 import GreenCleaning from "@/sections/greenCleaning";
 import OurTeam from "@/sections/ourTeam";
 import Testimonials from "@/sections/testimonials";
+
+import { PAGE_ROUTE } from "@/constants/info";
+
 
 export default function About() {
   return (
