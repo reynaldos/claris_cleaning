@@ -20,8 +20,8 @@ export const metadata: Metadata = {
       url: "./logo/ccc_logo_180x180.png",
       type: "image/png",
     },
-    { sizes: "32x32", url: "./logo/ccc_logo_180x180.png", type: "image/png" },
-    { sizes: "16x16", url: "./logo/ccc_logo_180x180.png", type: "image/png" },
+    { sizes: "32x32", url: "./logo/ccc_logo_32x32.png", type: "image/png" },
+    { sizes: "16x16", url: "./logo/ccc_logo_16x16.png", type: "image/png" },
   ],
   openGraph: {
     title: "Clari's Cleaning Crew",
