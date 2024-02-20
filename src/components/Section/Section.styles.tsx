@@ -68,7 +68,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
       white-space: pre-wrap;
     }
 
-    >p {
+    p {
       color: #000;
 
       /* BodyText */
@@ -87,7 +87,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
         font-size: 2rem;
       }
 
-      >p {
+      p {
         font-size: 1.1rem;
       }
     }
