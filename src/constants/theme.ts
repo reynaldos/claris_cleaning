@@ -6,7 +6,7 @@ const green900 = "#649502";
 
 const white = "#ffffff";
 const white300 = "#f7f8f9";
-const black = "";
+const black = "#000000";
 const grey900 = "#373a4a";
 const grey700 = "#858899";
 const grey400 = "#c3c4c9";
@@ -42,6 +42,7 @@ export const globalTheme = {
     grey900,
     
     gold400,
+    black
   },
 
   // textColor
