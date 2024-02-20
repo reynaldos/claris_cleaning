@@ -22,7 +22,8 @@ export interface SectionButton {
 interface SectionType
   extends PropsWithChildren<React.HTMLAttributes<HTMLDivElement>> {
   backgroundColor?: string | undefined;
-  title?: string;
+  title?: string  | undefined;
+  titleAlign?: "center" | "left" | "right" | undefined;
   content?: string | undefined;
   maxImageWidth?: string | undefined;
   image?:
@@ -38,6 +39,7 @@ interface SectionType
 const SectionComponent = ({
   backgroundColor = "#FFF",
   title,
+  titleAlign = 'left',
   content,
   image,
   reverse = false,
@@ -57,7 +59,7 @@ const SectionComponent = ({
             <div>
               {image.type === "img" ? (
                 // regular image
-                <Image src={image.src} alt={title ?? "section image"} />
+                <Image src={image.src} alt={"section image"} />
               ) : (
                 // custom component in place of image
                 <>{image.src}</>
@@ -66,7 +68,7 @@ const SectionComponent = ({
           )}
 
           <div>
-            {title && <h2>{title}</h2>}
+            {title && <h2 style={{ textAlign: titleAlign }}>{title}</h2>}
             <p>{content}</p>
             {children}
 
@@ -84,7 +86,7 @@ const SectionComponent = ({
                     <Button>{primaryButton.label}</Button>
                   </Link>
                 ))}
-                {/* right button */}
+              {/* right button */}
               {secondaryButton &&
                 (secondaryButton.linkType === "external" ? (
                   // links to external page
@@ -103,7 +105,7 @@ const SectionComponent = ({
       ) : (
         // section with only one child
         <SoloSectionWrap>
-          {title && <h2>{title}</h2>}
+          {title && <h2 style={{ textAlign: titleAlign }}>{title}</h2>}
           {children}
         </SoloSectionWrap>
       )}

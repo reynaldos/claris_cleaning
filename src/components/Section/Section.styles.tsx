@@ -57,6 +57,7 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
     max-width: 600px;
 
     h2 {
+      width: 100%;
       color: #000;
 
       /* Title */
@@ -129,6 +130,8 @@ export const SoloSectionWrap = styled(MaxWidthWrapper)`
   gap: 36px;
 
   h2 {
+    width: 100%;
+
     color: #000;
 
     /* Title */
