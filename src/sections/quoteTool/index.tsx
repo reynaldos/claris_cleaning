@@ -34,7 +34,9 @@ const QuoteTool = () => {
           </div>
           <div>
             <CheckBoxIcon />
-            <p>Receive your First Cleaning Sooner with Clari's Cleaning Crew</p>
+            <p>
+              Receive your First Cleaning Sooner with Clari&apos;s Cleaning Crew
+            </p>
           </div>
         </span>
       </QuoteWrapper>
