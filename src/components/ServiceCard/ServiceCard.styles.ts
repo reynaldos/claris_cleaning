@@ -25,6 +25,8 @@ export const CardContainer = styled.div`
     object-position: 45%;
     width: 280px;
     min-width: 280px;
+
+    border-radius: 20px 0 0 20px;
   }
 
   .content {
@@ -91,6 +93,7 @@ export const CardContainer = styled.div`
       object-position: 45%;
       height: 220px;
       min-height: 220px;
+      border-radius: 20px 20px 0 0;
     }
   }
 
