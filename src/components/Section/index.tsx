@@ -1,6 +1,6 @@
 "use client"
 
-import React, { PropsWithChildren } from "react";
+import React, { ReactElement, PropsWithChildren } from "react";
 
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import {
@@ -13,7 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../Buttons";
 
-interface SectionButton {
+export interface SectionButton {
   linkType: "internal" | "external";
   href: string;
   label: string | any ;
@@ -26,12 +26,13 @@ interface SectionType
   content?: string | undefined;
   maxImageWidth?: string | undefined;
   image?:
-    | { type: "img"; src: StaticImport}
-    | { type: "component"; src: React.Component } | undefined;
+    | { type: "img"; src: StaticImport }
+    | { type: "component"; src: ReactElement }
+    | undefined;
   reverse?: boolean; // reverses order of child divs
   primaryButton?: SectionButton;
   secondaryButton?: SectionButton;
-  sectionsType?: 'single' |'double'; //one or two divs in sections
+  sectionsType?: "single" | "double"; //one or two divs in sections
 }
 
 const SectionComponent = ({

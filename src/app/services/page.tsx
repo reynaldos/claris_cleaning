@@ -1,8 +1,27 @@
-import Link from 'next/link';
-import React from 'react'
+// sections
+import Testimonials from "@/sections/testimonials";
 
-const Services = () => {
-  return <div>Services</div>;
+import HeroSection from "@/components/HeroSection";
+import { PAGE_ROUTE } from "@/constants/info";
+
+export default function Services() {
+  return (
+    <>
+      <HeroSection
+        backgroundImage={"services"}
+        title={`Our Cleaning Services`}
+        primaryButton={{
+          linkType: "internal",
+          label: "Book Cleaning Today",
+          href: PAGE_ROUTE.FREE_QUOTE,
+        }}
+        secondaryButton={{
+          linkType: "internal",
+          label: "Contact Us",
+          href: PAGE_ROUTE.CONTACT,
+        }}
+      />
+      <Testimonials />
+    </>
+  );
 }
-
-export default Services;
