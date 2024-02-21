@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BadgeIcon = ({ color = '#0095D5"' }) => {
+const BadgeIcon = ({ color = '#0095D5' }) => {
   return (
     <svg
       width="61"

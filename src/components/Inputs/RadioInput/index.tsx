@@ -9,11 +9,12 @@ interface RadioInputProps{
   label: string | any;
   checked: boolean;
   onSelect: ()=>void;
+  width?: string;
 }
 
-const RadioInput = ({ onSelect, checked, label }: RadioInputProps) => {
+const RadioInput = ({ width, onSelect, checked, label }: RadioInputProps) => {
   return (
-    <RadioWrap onClick={onSelect}>
+    <RadioWrap style={{ width: width ?? 'fit-content'}} onClick={onSelect}>
       {checked ? <IoMdRadioButtonOn /> : <IoMdRadioButtonOff />}
 
       <label>{label}</label>

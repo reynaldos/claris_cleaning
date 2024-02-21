@@ -9,7 +9,6 @@ export const RadioWrap = styled.div`
   align-items: center;
   gap: 4px;
   height: fit-content;
-  width: fit-content;
 
   cursor: pointer;
 

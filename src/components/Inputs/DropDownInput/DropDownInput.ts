@@ -113,6 +113,7 @@ export const OptionsList = styled.div<{ $isOpen: boolean }>`
     font-weight: 400;
     font-size: 16px;
     background-color: ${({ theme }) => `${theme.colors.grey200}`};
+    color: ${({ theme }) => theme.colors.black} !important;
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.secondary};
@@ -120,7 +121,7 @@ export const OptionsList = styled.div<{ $isOpen: boolean }>`
 
     &.active {
       font-weight: 600;
-      color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.white} !important;
       background-color: ${({ theme }) => theme.colors.secondary};
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OfficeIcon = ({ color = '#0095D5"' }) => {
+const OfficeIcon = ({ color = '#0095D5' }) => {
   return (
     <svg
       width="61"
