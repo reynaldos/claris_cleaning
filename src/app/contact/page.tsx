@@ -27,7 +27,7 @@ export default function Contact() {
               {formatPhoneNumber(BUSINESS_PHONE)}
             </>
           ),
-          href: `${BUSINESS_PHONE}`,
+          href: `tel:${BUSINESS_PHONE}`,
         }}
       />
 

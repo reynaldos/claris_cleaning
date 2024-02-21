@@ -2,7 +2,7 @@ import React from "react";
 
 import { ContactStrip } from "./contactIntro.styles";
 
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/Forms/ContactForm";
 import SectionComponent from "@/components/Section";
 import {
   BUSINESS_ADDRESS,

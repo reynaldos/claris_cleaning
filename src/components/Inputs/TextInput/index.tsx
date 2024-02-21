@@ -14,7 +14,7 @@ const TextInput = (props: TextInputProps) => {
 
   return (
     <InputContainer
-        style={{height: props.height ?? "100%"}}
+        style={{height: props.height ?? "50px"}}
       >
       <input
         {...props}
@@ -30,7 +30,7 @@ const TextInput = (props: TextInputProps) => {
         <label
           htmlFor={`input-${props.label}`}
           style={{
-            transform: isFilled ? `translate(0px, -15px)` : "",
+            transform: isFilled ? `translate(0px, -8px)` : "",
             fontSize: isFilled ? `14px` : "",
           }}
         >

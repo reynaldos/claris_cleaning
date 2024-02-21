@@ -8,7 +8,7 @@ export const InputContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  border-radius: 20px;
+  border-radius: 12px;
   background-color: ${({ theme }) => theme.colors.white};
 
   input {
@@ -19,7 +19,7 @@ export const InputContainer = styled.div`
     padding: 20px;
     height: 100%;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 12px;
     background-color: transparent;
     border: none;
   }
@@ -30,7 +30,7 @@ export const InputContainer = styled.div`
     pointer-events: none;
     position: absolute;
     left: 0;
-    top: 4px;
+    top: -4px;
     font-size: 18px;
     line-height: 1;
     z-index: 2;

@@ -23,6 +23,7 @@ export const InputContainer = styled.div`
     background-color: transparent;
     border: none;
     resize: none;
+    font-family: unset;
   }
 
   label {
