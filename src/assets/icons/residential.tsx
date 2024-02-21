@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ResidentialIcon = ({ color = '#0095D5"' }) => {
+const ResidentialIcon = ({ color = '#0095D5' }) => {
   return (
     <svg
       width="61"
