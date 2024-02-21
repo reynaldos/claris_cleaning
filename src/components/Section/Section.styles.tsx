@@ -24,6 +24,8 @@ export const SectionWrapper = styled(MaxWidthWrapper)<{
   $reverse: boolean;
   $maxImageWidth: string;
 }>`
+  position: relative;
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -122,6 +124,7 @@ export const ButtonWrap = styled.span`
 
 
 export const SoloSectionWrap = styled(MaxWidthWrapper)`
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;

@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import { FormWrap } from './ContactForm.styles';
 
-import Button from '../Buttons';
-import TextInput from '../TextInput';
-import TextArea from '../TextArea';
+import Button from '../../Buttons';
+import TextInput from '../../Inputs/TextInput';
+import TextArea from '../../Inputs/TextArea';
 
 const ContactForm = () => {
 
@@ -57,7 +57,6 @@ const ContactForm = () => {
       <span>
         <TextArea
           label="Message"
-          type="textarea"
           value={formProps.message}
           onChange={(e) => {
             setFormProps((old) => ({ ...old, message: e.target.value }));
