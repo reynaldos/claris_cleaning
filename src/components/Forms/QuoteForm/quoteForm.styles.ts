@@ -56,6 +56,10 @@ export const FormWrapper = styled.form`
         &.radio {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
+
+          &>div{
+            width: 100% !important;
+          }
         }
       }
 
