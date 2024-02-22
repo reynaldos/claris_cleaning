@@ -11,6 +11,11 @@ import navRoutes from "./routes";
 import Button from "../Buttons";
 import { PAGE_ROUTE } from "@/constants/info";
 
+import {
+  unlock as enableBodyScroll,
+  lock as disableBodyScroll,
+} from "tua-body-scroll-lock";
+
 
 export const Links = () => {
   const pathname = usePathname();
@@ -21,10 +26,11 @@ export const Links = () => {
   useEffect(() => {
     if (openNav && !desiredBp("md")) {
       setOpenNav(false);
+      enableBodyScroll();
     }
   }, [desiredBp("md"), windowWidth]);
 
-  useEffect(() => setOpenNav(false), [pathname]);
+  useEffect(() => {setOpenNav(false);  enableBodyScroll();}, [pathname]);
   
   
   return (
@@ -61,6 +67,8 @@ export const Links = () => {
       <button
         className="hamburger"
         onClick={() => {
+          !openNav ? disableBodyScroll() : enableBodyScroll();
+          
           setOpenNav((old) => !old);
         }}
       >
