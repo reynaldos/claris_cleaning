@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { InputContainer, OptionsList } from "./DropDownInput";
 import { FaChevronDown } from "react-icons/fa6";
 
@@ -21,6 +21,18 @@ const DropDownInput = ({
   height,
 }: DropDownInputProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('mouseup', () => {
+      setMenuOpen(false);
+    });
+
+    return () => {
+      window.removeEventListener("mouseup", () => {
+        setMenuOpen(false);
+      });
+    };
+  }, []);
 
   const onSelected = (e: any, option: string) => {
     e.preventDefault();
@@ -64,16 +76,14 @@ const DropDownInput = ({
           {label}
         </label>
       )}
-      <span className="arrow" 
-      // style={{opacity: isFilled ? '1' : '.65'}}
-      >
+      <span className="arrow">
         <FaChevronDown />
       </span>
 
       <OptionsList $isOpen={menuOpen}>
         {options.map((option, index) => (
           <button
-          className={`${option === value ? 'active' : ''}`}
+            className={`${option === value ? "active" : ""}`}
             key={index}
             onClick={(e) => {
               onSelected(e, option);

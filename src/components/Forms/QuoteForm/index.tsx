@@ -146,6 +146,10 @@ const QuoteForm = () => {
       <span className="buttonWrap">
         <Button
           onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
             setFormPart(2);
           }}
         >
@@ -314,6 +318,10 @@ const QuoteForm = () => {
       <span className="buttonWrap">
         <Button
           onClick={() => {
+             window.scrollTo({
+               top: 0,
+               behavior: "smooth",
+             });
             setFormPart(1);
           }}
         >
