@@ -3,23 +3,25 @@ import React from 'react'
 import { CardContainer } from './ServiceCard.styles';
 import Image from 'next/image';
 import Button from '../Buttons';
+import { BUSINESS_PHONE } from '@/constants/info';
 
 interface CardProps {
   title: string;
   description: string;
   image: StaticImport;
-  onClick: ()=> void;
 }
 
 
-const ServiceCard = ({ title, description, image, onClick }: CardProps) => {
+const ServiceCard = ({ title, description, image }: CardProps) => {
   return (
     <CardContainer>
-      <Image src={image} alt={title}/>
-      <div className='content'>
+      <Image src={image} alt={title} />
+      <div className="content">
         <h2>{title}</h2>
         <p>{description}</p>
-        <Button onClick={onClick}>Learn More</Button>
+        <a href={`tel:${BUSINESS_PHONE}`}>
+          <Button>Learn More</Button>
+        </a>
       </div>
     </CardContainer>
   );

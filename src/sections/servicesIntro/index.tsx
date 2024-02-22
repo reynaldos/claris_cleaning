@@ -51,7 +51,6 @@ const ServicesIntro = () => {
             title={info.title}
             description={info.description}
             image={info.image}
-            onClick={() => {}}
           />
         ))}
       </CardWrapper>
