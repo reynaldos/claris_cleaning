@@ -4,45 +4,67 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 import Link from 'next/link'
 import { LinkWrapper } from './Navbar.styles';
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import QuoteBtn from "@/components/Buttons/Quote";
 
 import navRoutes from "./routes";
+import Button from "../Buttons";
+import { PAGE_ROUTE } from "@/constants/info";
 
 
 export const Links = () => {
   const pathname = usePathname();
-  const  { desiredBp }  = useMediaQuery();
+  const  { windowWidth, desiredBp }  = useMediaQuery();
 
   const [openNav,setOpenNav] = useState(false);
 
   useEffect(() => {
-    if (openNav && !desiredBp("lg")) {
+    if (openNav && !desiredBp("md")) {
       setOpenNav(false);
     }
-  }, [desiredBp("lg")]);
+  }, [desiredBp("md"), windowWidth]);
 
   useEffect(() => setOpenNav(false), [pathname]);
   
   
   return (
-    <LinkWrapper>
-      <span className={openNav ? "hamList" : "linkList"}>
+    <LinkWrapper $mobileNavOpen={openNav}>
+      <span className={"linkList"}>
         {navRoutes.map((val, ind) => (
           <Link key={ind} href={val.route}>
-            <button data-isactive={pathname === val.route}>{val.label}</button>
+            <button className="link" data-isactive={pathname === val.route}>
+              {val.label}
+            </button>
           </Link>
         ))}
-        <QuoteBtn />
+        <Link href={PAGE_ROUTE.FREE_QUOTE}>
+          <Button>Get A Quote</Button>
+        </Link>
       </span>
+
+      <span className={"hamList"}>
+        {navRoutes.map((val, ind) => (
+          <Link key={ind} href={val.route}>
+            <button className="link" data-isactive={pathname === val.route}>
+              {val.label}
+            </button>
+          </Link>
+        ))}
+
+        <div className="btnWrap">
+          <Link href={PAGE_ROUTE.FREE_QUOTE} className="quote">
+            <Button>Book Your Cleaning</Button>
+          </Link>
+        </div>
+      </span>
+
       <button
         className="hamburger"
         onClick={() => {
           setOpenNav((old) => !old);
         }}
       >
-        <RxHamburgerMenu size={32} />
+        {openNav ? <RxCross1 size={32} /> : <RxHamburgerMenu size={32} />}
       </button>
     </LinkWrapper>
   );

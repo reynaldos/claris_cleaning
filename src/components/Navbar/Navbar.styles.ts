@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const TopNavContainer = styled.nav`
   position: fixed;
-  z-index: 5;
+  z-index: 25;
   background: ${({ theme }) => theme.colors.white};
   width: 100vw;
   box-shadow: 0px 0px 4cap 0px rgba(0, 0, 0, 0.25);
@@ -19,7 +19,7 @@ export const TopNavContainer = styled.nav`
     padding: 0.5rem 1rem;
     background-color: ${({ theme }) => theme.colors.primary};
 
-    @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+    @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
       display: none;
     }
 
@@ -52,88 +52,140 @@ export const TopNavContainer = styled.nav`
   }
 `;
 
-export const LinkWrapper = styled.div`
+export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
   display: flex;
-  /* position: relative; */
 
   .hamburger {
+    cursor: pointer;
     border: none;
     background-color: transparent;
     color: ${({ theme }) => theme.colors.primary};
 
-    @media screen and (min-width: ${({ theme }) => theme.bpts.lg}) {
+    @media screen and (min-width: ${({ theme }) => theme.bpts.md}) {
       display: none;
     }
   }
 
-  .linkList,
-  .hamList {
-    button {
-      all: unset;
-      font-size: 1rem;
-      font-weight: 600;
+  .link {
+    all: unset;
+    font-size: 1rem;
+    font-weight: 600;
 
-      margin: 0 0.5rem;
-      padding: 0.5rem 0.5rem;
-      /* text-transform: uppercase; */
-      border-bottom: 2px solid transparent;
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.5rem;
+    /* text-transform: uppercase; */
+    border-bottom: 2px solid transparent;
 
-      transition: border 100ms ease-in, color 100ms ease-in;
+    transition: border 100ms ease-in, color 100ms ease-in;
 
-      &:hover {
-        cursor: pointer;
-        color: ${({ theme }) => theme.colors.primary};
-        border-bottom: ${({ theme }) => `2px solid ${theme.colors.primary}`};
-      }
+    &:hover {
+      cursor: pointer;
+      color: ${({ theme }) => theme.colors.primary};
+      border-bottom: ${({ theme }) => `2px solid ${theme.colors.primary}`};
     }
-    button[data-isactive="true"] {
+
+    &[data-isactive="true"] {
       color: ${({ theme }) => theme.colors.primary};
       border-bottom: ${({ theme }) => `2px solid ${theme.colors.primary}`};
     }
   }
 
+  /* desktop nav */
   .linkList {
-    @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 76px;
+    top: -36px;
+
+    @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {
       display: none;
     }
   }
 
+  /* mobile nav */
   .hamList {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: stretch;
+
+    transition: height 300ms ease-in-out, opacity 200ms ease-in-out;
     background: ${({ theme }) => theme.colors.white};
     position: absolute;
-
     top: calc(36px + 76px);
-    width: 100%;
+    width: 100vw;
     right: 0;
+    z-index: 24px;
+    overflow-y: hidden;
+
+    margin: 0;
     padding: 0;
 
-    button {
+    opacity: ${({ $mobileNavOpen }) => ($mobileNavOpen ? "1" : "0")};
+    height: ${({ $mobileNavOpen }) =>
+      $mobileNavOpen ? "calc(100svh - 36px - 76px)" : "0px"};
+
+    a {
+      all: unset;
+      flex: 1;
+      height: 100%;
+      padding: 0px;
+      margin: 0;
+
+      &:first-child .link {
+        border-top: 2px grey solid;
+      }
+    }
+    .link {
+      box-sizing: border-box;
+
+      flex: 1;
+      font-size: 2rem;
+
       width: 100%;
+      height: 100%;
       text-align: center;
       border-bottom: 2px grey solid;
+      padding: 0px;
       margin: 0;
+
+      &[data-isactive="true"] {
+        color: ${({ theme }) => `${theme.colors.primary}`};
+        border-bottom: 2px grey solid;
+      }
+
+      &:hover {
+        color: ${({ theme }) => `${theme.colors.white}`};
+        border-bottom: 2px grey solid;
+        background-color: ${({ theme }) => `${theme.colors.primary}`};
+      }
     }
 
-    @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+    .btnWrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        width: fit-content;
+        height: fit-content;
+      }
+      button {
+        margin: 24px auto;
+        font-size: 24px;
+        padding: 16px 24px;
+      }
+    }
+
+    @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
       top: calc(76px);
+      height: ${({ $mobileNavOpen }) =>
+        $mobileNavOpen ? "calc(100svh - 76px)" : "0px"};
     }
 
-    /* animation: open 200ms ease-in 0ms;
-    animation-fill-mode: forwards;
-
-    overflow: hidden;
-
-    @keyframes open {
-      0% {
-        height: 0;
-      }
-      100% {
-        height: 200px;
-      }
-    } */
+    @media screen and (min-width: ${({ theme }) => theme.bpts.md}) {
+      display: none;
+    }
   }
 `;
 
