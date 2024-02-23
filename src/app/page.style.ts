@@ -65,6 +65,21 @@ export const ContentWrap = styled.div`
     width: 100%;
     display: flex;
     gap: 12px;
+
+    @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+      font-size: 12px;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 350px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   span div {
@@ -101,7 +116,7 @@ export const ContentWrap = styled.div`
     }
 
     span {
-      justify-content: space-between;
+      /* justify-content: space-between; */
     }
   }
 `;
