@@ -13,7 +13,7 @@ import ServiceArea from "@/sections/serviceArea";
 import GreenCleaning from "@/sections/greenCleaning";
 import HomeIntro from "@/sections/homeIntro";
 import Testimonials from "@/sections/testimonials";
-import TrustedBrandsSection from "@/sections/trustedBrands";
+// import TrustedBrandsSection from "@/sections/trustedBrands";
 
 export default function Home() {
   return (
@@ -53,7 +53,7 @@ export default function Home() {
 
       <GreenCleaning />
 
-      <TrustedBrandsSection />
+      {/* <TrustedBrandsSection /> */}
     </>
   );
 }
