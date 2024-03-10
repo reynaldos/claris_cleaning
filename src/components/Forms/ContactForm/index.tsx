@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import { FormWrap } from './ContactForm.styles';
+import React, { useState } from "react";
+import { FormWrap } from "./ContactForm.styles";
 
-import Button from '../../Buttons';
-import TextInput from '../../Inputs/TextInput';
-import TextArea from '../../Inputs/TextArea';
+import Button from "../../Buttons";
+import TextInput from "../../Inputs/TextInput";
+import TextArea from "../../Inputs/TextArea";
 
 import { useForm, useWatch, Controller } from "react-hook-form";
+import { formatPhoneNumber } from "@/utils/sting";
 
 const ContactForm = () => {
-
   // Forms
   const {
     handleSubmit,
@@ -31,10 +31,9 @@ const ContactForm = () => {
   const message = watch("message");
 
   const handleFormSubmit = (data: any) => {
-  console.log(data);
-    console.table({name, phone, email, message});
+    console.log(data);
+    console.table({ name, phone: formatPhoneNumber(phone), email, message });
   };
-
 
   return (
     <FormWrap onSubmit={handleSubmit(handleFormSubmit)}>
@@ -66,7 +65,7 @@ const ContactForm = () => {
               type="phone"
               onChange={onChange}
               onBlur={onBlur}
-              value={value}
+              value={formatPhoneNumber(value)}
               error={errors.phone && true}
               errorMessage={errors.phone?.message || "Invalid phone number"}
             />
@@ -77,7 +76,7 @@ const ContactForm = () => {
             required: false,
             validate: {
               maxLength: (v) =>
-                v.length <= 16 || "The phone number needds to be 10 characters",
+                v.length <= 10 || "The phone number needs to be 10 characters",
               // matchPattern: (v) =>
               //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
               //   "Invalid phone number pattern",
@@ -143,6 +142,6 @@ const ContactForm = () => {
       </Button>
     </FormWrap>
   );
-}
+};
 
-export default ContactForm
+export default ContactForm;
