@@ -24,6 +24,10 @@ export const InputContainer = styled.div`
     border: none;
     resize: none;
     font-family: unset;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   label {
@@ -40,5 +44,25 @@ export const InputContainer = styled.div`
     padding: 20px;
 
     transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+`;
+
+export const ErrorMessage = styled.p`
+  padding-top: 4px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.white};
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+
+  svg {
+    color: white;
+    background-color: red;
+    border-radius: 100%;
+    padding: 2px;
+    height: 18px;
+    width: 18px;
   }
 `;
