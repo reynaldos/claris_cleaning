@@ -7,9 +7,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   hoverColor?: string | undefined;
 }
 
-const Button = ({ hoverColor, children, ...props }: ButtonProps) => {
+const Button = ({ hoverColor, children, disabled, ...props }: ButtonProps) => {
   return (
-    <StyledBtn hoverColor={hoverColor} {...props}>
+    <StyledBtn hoverColor={hoverColor} disabled={disabled} {...props}>
       {children}
     </StyledBtn>
   );
@@ -17,7 +17,10 @@ const Button = ({ hoverColor, children, ...props }: ButtonProps) => {
 
 export default Button;
 
-const StyledBtn = styled.button<{ hoverColor: string | undefined }>`
+const StyledBtn = styled.button<{
+  hoverColor: string | undefined;
+  disabled: boolean | undefined;
+}>`
   display: flex;
   padding: 12px 20px;
   justify-content: center;
@@ -35,6 +38,16 @@ const StyledBtn = styled.button<{ hoverColor: string | undefined }>`
   line-height: 1;
   letter-spacing: 0.12px;
   transition: all 300ms ease-in-out;
+
+  ${({ disabled, theme }) =>
+    disabled
+      ? `
+      pointer-events: none;
+      background-color: ${theme.colors.grey400};
+      color: ${theme.colors.grey900};
+
+  `
+      : ""};
 
   &:hover {
     background-color: ${({ hoverColor, theme }) =>

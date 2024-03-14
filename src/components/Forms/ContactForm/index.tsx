@@ -1,73 +1,147 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import { FormWrap } from './ContactForm.styles';
+import React, { useState } from "react";
+import { FormWrap } from "./ContactForm.styles";
 
-import Button from '../../Buttons';
-import TextInput from '../../Inputs/TextInput';
-import TextArea from '../../Inputs/TextArea';
+import Button from "../../Buttons";
+import TextInput from "../../Inputs/TextInput";
+import TextArea from "../../Inputs/TextArea";
+
+import { useForm, useWatch, Controller } from "react-hook-form";
+import { formatPhoneNumber } from "@/utils/sting";
 
 const ContactForm = () => {
+  // Forms
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+    watch,
+  } = useForm({
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+    },
+  });
+  const name = watch("name");
+  const phone = watch("phone");
+  const email = watch("email");
+  const message = watch("message");
 
-    const [formProps, setFormProps] = useState({
-      name: '',
-      phone: '',
-      email: '',
-      message: ''
-    })
-
-    const handleFormSubmit = (e : any) =>{
-        e.preventDefault();
-    }
+  const handleFormSubmit = (data: any) => {
+    console.log(data);
+    console.table({ name, phone: formatPhoneNumber(phone), email, message });
+  };
 
   return (
-    <FormWrap>
+    <FormWrap onSubmit={handleSubmit(handleFormSubmit)}>
       <span>
-        <h2 className='title'>Chat with Us</h2>
+        <h2 className="title">Chat with Us</h2>
       </span>
       <span>
-        <TextInput
-          label="Name"
-          value={formProps.name}
-          onChange={(e) => {
-            setFormProps((old) => ({ ...old, name: e.target.value }));
-          }}
-          required
+        <Controller
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              label="Name"
+              onChange={onChange}
+              onBlur={onBlur}
+              value={value}
+              error={errors.name && true}
+              errorMessage={"Name needs at least 3 characters"}
+              required
+            />
+          )}
+          name="name"
+          control={control}
+          rules={{ minLength: 3, required: true }}
         />
-        <TextInput
-          label="Phone Number (optional)"
-          type='phone'
-          value={formProps.phone}
-          onChange={(e) => {
-            setFormProps((old) => ({ ...old, phone: e.target.value }));
+
+        <Controller
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              label="Phone Number (optional)"
+              type="phone"
+              onChange={onChange}
+              onBlur={onBlur}
+              value={formatPhoneNumber(value)}
+              error={errors.phone && true}
+              errorMessage={errors.phone?.message || "Invalid phone number"}
+            />
+          )}
+          name="phone"
+          control={control}
+          rules={{
+            required: false,
+            validate: {
+              maxLength: (v) =>
+                v.length <= 10 || "The phone number needs to be 10 characters",
+              // matchPattern: (v) =>
+              //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+              //   "Invalid phone number pattern",
+            },
           }}
         />
       </span>
       <span>
-        <TextInput
-          label="Email"
-          type='email'
-          value={formProps.email}
-          onChange={(e) => {
-            setFormProps((old) => ({ ...old, email: e.target.value }));
+        <Controller
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              label="Email"
+              type="email"
+              onChange={onChange}
+              onBlur={onBlur}
+              value={value}
+              error={errors.email && true}
+              errorMessage={errors.email?.message || "Invalid email address"}
+              required
+            />
+          )}
+          name="email"
+          control={control}
+          rules={{
+            required: true,
+            validate: {
+              minLength: (v) =>
+                v.length > 10 || "The email should have at least 10 characters",
+              maxLength: (v) =>
+                v.length <= 50 || "The email should have at most 50 characters",
+              matchPattern: (v) =>
+                /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                "Invalid email address",
+            },
           }}
-          required
         />
       </span>
       <span>
-        <TextArea
-          label="Message"
-          value={formProps.message}
-          onChange={(e) => {
-            setFormProps((old) => ({ ...old, message: e.target.value }));
-          }}
-          required
-          height="162px"
+        <Controller
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextArea
+              label="Message"
+              onChange={onChange}
+              onBlur={onBlur}
+              value={value}
+              error={errors.message && true}
+              errorMessage={"Message needs at least 10 characters"}
+              required
+              height="162px"
+            />
+          )}
+          name="message"
+          control={control}
+          rules={{ required: true, minLength: 10 }}
         />
       </span>
-      <Button style={{ width: "fit-content" }} type='submit' onClick={handleFormSubmit}>Send Message</Button>
+      <Button
+        style={{ width: "fit-content" }}
+        type="submit"
+        // onClick={handleFormSubmit}
+      >
+        Send Message
+      </Button>
     </FormWrap>
   );
-}
+};
 
-export default ContactForm
+export default ContactForm;

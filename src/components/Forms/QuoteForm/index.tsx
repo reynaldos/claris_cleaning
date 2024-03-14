@@ -19,22 +19,52 @@ import {
 } from "./formValues";
 import RadioInput from "@/components/Inputs/RadioInput";
 
+import { useForm, Controller } from "react-hook-form";
+import { formatPhoneNumber } from "@/utils/sting";
+
+interface IQuoteProps {
+  roomAmount: string;
+  bathroomAmount: string;
+  squareFootage: string;
+  services: string[];
+  visitFrequency: string;
+  hearAbout: string;
+  canContact: string;
+  howSoon: string;
+  notes: string;
+}
+
 const QuoteForm = () => {
   const [formPart, setFormPart] = useState<1 | 2>(1);
 
-  const [quoteField, setQuoteFields] = useState({
-    roomAmount: "",
-    bathroomAmount: "",
-    squareFootage: "",
-    services: [""],
-    visitFrequency: "",
-    contactInfo: {
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+    watch,
+  } = useForm({
+    defaultValues: {
       firstName: "",
       lastName: "",
       email: "",
       phone: "",
       zipcode: "",
+      message: "",
     },
+  });
+
+  const firstName = watch("firstName");
+  const lastName = watch("lastName");
+  const phone = watch("phone");
+  const email = watch("email");
+  const zipcode = watch("zipcode");
+
+  const [quoteField, setQuoteFields] = useState<IQuoteProps>({
+    roomAmount: "",
+    bathroomAmount: "",
+    squareFootage: "",
+    services: [],
+    visitFrequency: "",
     hearAbout: "",
     canContact: "",
     howSoon: "",
@@ -57,10 +87,39 @@ const QuoteForm = () => {
     setQuoteFields((old) => ({ ...old, services: newServices }));
   };
 
-  const handleFormSubmit = (e: any) => {
-    e.preventDefault();
+  const handleFormSubmit = () => {
     console.table(quoteField);
+    console.table({
+      firstName,
+      lastName,
+      email,
+      phone: formatPhoneNumber(phone),
+      zipcode,
+    });
   };
+
+  const isNextDisabled = () => {
+    if (
+      quoteField.roomAmount &&
+      quoteField.bathroomAmount &&
+      quoteField.squareFootage &&
+      quoteField.services.length > 0 &&
+      quoteField.visitFrequency
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  const isSubmitDisabled = () => {
+    if (quoteField.hearAbout && quoteField.canContact && quoteField.howSoon) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
 
   // first part of form
   const formIntro = () => (
@@ -145,7 +204,10 @@ const QuoteForm = () => {
       {/* -- BUTTONS -- */}
       <span className="buttonWrap">
         <Button
-          onClick={() => {
+          disabled={isNextDisabled()}
+          onClick={(e) => {
+            e.preventDefault();
+
             window.scrollTo({
               top: 0,
               behavior: "smooth",
@@ -166,91 +228,126 @@ const QuoteForm = () => {
       <section className="formSection">
         <label>Contact Information</label>
         <span>
-          <TextInput
-            label="First Name*"
-            type="text"
-            value={quoteField.contactInfo.firstName}
-            onChange={(e) => {
-              setQuoteFields((old) => ({
-                ...old,
-                contactInfo: {
-                  ...old.contactInfo,
-                  firstName: e.target.value,
-                },
-              }));
-            }}
-            required
+          <Controller
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                label="First Name*"
+                type="text"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
+                error={errors.firstName && true}
+                errorMessage={"Name needs at least 3 characters"}
+                required
+              />
+            )}
+            name="firstName"
+            control={control}
+            rules={{ minLength: 3, required: true }}
           />
 
-          <TextInput
-            label="Last Name*"
-            type="text"
-            value={quoteField.contactInfo.lastName}
-            onChange={(e) => {
-              setQuoteFields((old) => ({
-                ...old,
-                contactInfo: {
-                  ...old.contactInfo,
-                  lastName: e.target.value,
-                },
-              }));
-            }}
-            required
+          <Controller
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                label="Last Name*"
+                type="text"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
+                error={errors.lastName && true}
+                errorMessage={"Name needs at least 3 characters"}
+                required
+              />
+            )}
+            name="lastName"
+            control={control}
+            rules={{ minLength: 3, required: true }}
           />
         </span>
 
         <span>
-          <TextInput
-            label="Email*"
-            type="email"
-            value={quoteField.contactInfo.email}
-            onChange={(e) => {
-              setQuoteFields((old) => ({
-                ...old,
-                contactInfo: {
-                  ...old.contactInfo,
-                  email: e.target.value,
-                },
-              }));
+          <Controller
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                label="Email*"
+                type="email"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
+                error={errors.email && true}
+                errorMessage={errors.email?.message || "Invalid email address"}
+                required
+              />
+            )}
+            name="email"
+            control={control}
+            rules={{
+              required: true,
+              validate: {
+                minLength: (v) =>
+                  v.length > 10 ||
+                  "The email should have at least 10 characters",
+                maxLength: (v) =>
+                  v.length <= 50 ||
+                  "The email should have at most 50 characters",
+                matchPattern: (v) =>
+                  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                  "Invalid email address",
+              },
             }}
-            required
           />
-          <TextInput
-            label="Phone Number*"
-            type="text"
-            value={quoteField.contactInfo.phone}
-            onChange={(e) => {
-              setQuoteFields((old) => ({
-                ...old,
-                contactInfo: {
-                  ...old.contactInfo,
-                  phone: e.target.value,
-                },
-              }));
+
+          <Controller
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                label="Phone Number*"
+                type="text"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={formatPhoneNumber(value)}
+                error={errors.phone && true}
+                errorMessage={errors.phone?.message || "Invalid phone number"}
+                required
+              />
+            )}
+            name="phone"
+            control={control}
+            rules={{
+              required: true,
+              validate: {
+                maxLength: (v) =>
+                  v.length <= 10 ||
+                  "The phone number needs to be 10 characters",
+                // matchPattern: (v) =>
+                //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                //   "Invalid phone number pattern",
+              },
             }}
-            required
           />
-          <TextInput
-            label="Zip Code*"
-            type="text"
-            value={quoteField.contactInfo.zipcode}
-            onChange={(e) => {
-              setQuoteFields((old) => ({
-                ...old,
-                contactInfo: {
-                  ...old.contactInfo,
-                  zipcode: e.target.value,
-                },
-              }));
-            }}
-            required
+
+          <Controller
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                label="Zip Code*"
+                type="text"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
+                error={errors.zipcode && true}
+                errorMessage={errors.zipcode?.message || "Invalid zip code"}
+                required
+              />
+            )}
+            name="zipcode"
+            control={control}
+            rules={{ required: true, minLength: 5, maxLength: 5 }}
           />
         </span>
       </section>
 
       {/* -- REFFERER -- */}
       <section className="formSection">
-        <label>How Did You Hear About Us?</label>
+        <label>How Did You Hear About Us? *</label>
         <span>
           <DropDownInput
             options={EnumToArray(HearAboutUs)}
@@ -265,7 +362,7 @@ const QuoteForm = () => {
 
       {/* -- CALL OR TEXT -- */}
       <section className="formSection">
-        <label>Permission to Call or Text?</label>
+        <label>Permission to Call or Text? *</label>
         <span
           style={{
             justifyContent: "flex-start",
@@ -286,7 +383,7 @@ const QuoteForm = () => {
 
       {/* -- HOW SOON -- */}
       <section className="formSection">
-        <label>How Soon Would You Like a Cleaning?</label>
+        <label>How Soon Would You Like a Cleaning? *</label>
         <span>
           <DropDownInput
             options={EnumToArray(HowSoon)}
@@ -318,23 +415,27 @@ const QuoteForm = () => {
       <span className="buttonWrap">
         <Button
           onClick={() => {
-             window.scrollTo({
-               top: 0,
-               behavior: "smooth",
-             });
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
             setFormPart(1);
           }}
         >
           Previous
         </Button>
-        <Button onClick={handleFormSubmit}>Submit</Button>
+        <Button type="submit" disabled={isSubmitDisabled()}>
+          Submit
+        </Button>
       </span>
     </>
   );
 
   return (
     <>
-      <FormWrapper>{formPart === 1 ? formIntro() : formFinal()}</FormWrapper>
+      <FormWrapper onSubmit={handleSubmit(handleFormSubmit)}>
+        {formPart === 1 ? formIntro() : formFinal()}
+      </FormWrapper>
     </>
   );
 };
