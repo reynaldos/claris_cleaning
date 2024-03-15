@@ -70,6 +70,7 @@ export const Label = styled.div`
     line-height: 24px;
     text-align: center;
     color: ${({ theme }) => theme.colors.white};
+    white-space: pre-wrap;
   }
 
   animation: grow 1.5s 1;

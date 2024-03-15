@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FormWrapper } from "./quoteForm.styles";
+import { FormWrapper, LoadWrapper } from "./quoteForm.styles";
 import Button from "../../Buttons";
 import DropDownInput from "../../Inputs/DropDownInput";
 import { EnumToArray } from "@/utils/object";
@@ -22,6 +22,12 @@ import RadioInput from "@/components/Inputs/RadioInput";
 import { useForm, Controller } from "react-hook-form";
 import { formatPhoneNumber } from "@/utils/sting";
 
+import emailjs from "@emailjs/browser";
+import FormLoader, { EmailStateEnum } from "@/components/FormLoader";
+
+const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+const quoteTemplateID = process.env.NEXT_PUBLIC_EMAILJS_QUOTE_TEMPLATE_ID || "";
+
 interface IQuoteProps {
   roomAmount: string;
   bathroomAmount: string;
@@ -34,10 +40,23 @@ interface IQuoteProps {
   notes: string;
 }
 
+const defaultQuoteState = {
+  roomAmount: "",
+  bathroomAmount: "",
+  squareFootage: "",
+  services: [],
+  visitFrequency: "",
+  hearAbout: "",
+  canContact: "",
+  howSoon: "",
+  notes: "",
+};
+
 const QuoteForm = () => {
   const [formPart, setFormPart] = useState<1 | 2>(1);
 
   const {
+    reset,
     handleSubmit,
     formState: { errors },
     control,
@@ -53,23 +72,15 @@ const QuoteForm = () => {
     },
   });
 
+  const [emailState, setEmailState] = useState(EmailStateEnum.IDLE);
+
   const firstName = watch("firstName");
   const lastName = watch("lastName");
   const phone = watch("phone");
   const email = watch("email");
   const zipcode = watch("zipcode");
 
-  const [quoteField, setQuoteFields] = useState<IQuoteProps>({
-    roomAmount: "",
-    bathroomAmount: "",
-    squareFootage: "",
-    services: [],
-    visitFrequency: "",
-    hearAbout: "",
-    canContact: "",
-    howSoon: "",
-    notes: "",
-  });
+  const [quoteField, setQuoteFields] = useState<IQuoteProps>(defaultQuoteState);
 
   // -- functions --
   const handleRadio = (section: keyof typeof quoteField, value: any) => {
@@ -87,7 +98,7 @@ const QuoteForm = () => {
     setQuoteFields((old) => ({ ...old, services: newServices }));
   };
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async () => {
     console.table(quoteField);
     console.table({
       firstName,
@@ -96,6 +107,28 @@ const QuoteForm = () => {
       phone: formatPhoneNumber(phone),
       zipcode,
     });
+
+    setEmailState(EmailStateEnum.LOADING);
+    try {
+      const result = await emailjs.send(serviceID, quoteTemplateID, {
+        ...quoteField,
+        ...{
+          firstName,
+          lastName,
+          email,
+          phone: formatPhoneNumber(phone),
+          zipcode,
+        },
+      });
+      console.log(result.text);
+      setEmailState(EmailStateEnum.SENT);
+
+      reset();
+      setQuoteFields(defaultQuoteState);
+    } catch (error: any) {
+      setEmailState(EmailStateEnum.ERROR);
+      console.log(error.text);
+    }
   };
 
   const isNextDisabled = () => {
@@ -119,7 +152,6 @@ const QuoteForm = () => {
       return true;
     }
   };
-
 
   // first part of form
   const formIntro = () => (
@@ -316,7 +348,7 @@ const QuoteForm = () => {
               required: true,
               validate: {
                 maxLength: (v) =>
-                  v.length <= 10 ||
+                  v.length > 16  ||
                   "The phone number needs to be 10 characters",
                 // matchPattern: (v) =>
                 //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
@@ -436,6 +468,13 @@ const QuoteForm = () => {
       <FormWrapper onSubmit={handleSubmit(handleFormSubmit)}>
         {formPart === 1 ? formIntro() : formFinal()}
       </FormWrapper>
+      {emailState !== EmailStateEnum.IDLE && (
+        <LoadWrapper>
+          <FormLoader 
+            label={`Thank you for using our quote tool,\nwe will be sending you quote shortly!`}
+            email={{ emailState, setEmailState }} />
+        </LoadWrapper>
+      )}
     </>
   );
 };

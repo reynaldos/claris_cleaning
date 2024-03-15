@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
 import React, { useEffect } from "react";
 import { Container, Label, Square, Wrapper } from "./FormLoader.styles";
-
 
 export enum EmailStateEnum {
   SENT = "sent",
@@ -11,11 +10,12 @@ export enum EmailStateEnum {
   ERROR = "error",
 }
 
-
 const FormLoader = ({
   email,
+  label,
 }: {
   email: { emailState: EmailStateEnum; setEmailState: any };
+  label?: string;
 }) => {
   const { emailState, setEmailState } = email;
 
@@ -45,12 +45,25 @@ const FormLoader = ({
         </Wrapper>
       ) : (
         <Label>
-          {<h2>{emailState === EmailStateEnum.ERROR ? <>Error, try again.</>: <>Thank you for reaching out,<br/>we will contact you shortly!</>}</h2>}
+          {
+            <h2>
+              {emailState === EmailStateEnum.ERROR ? (
+                <>Error, try again.</>
+              ) : label ? (
+                <>{label}</>
+              ) : (
+                <>
+                  Thank you for reaching out,
+                  <br />
+                  we will contact you shortly!
+                </>
+              )}
+            </h2>
+          }
         </Label>
       )}
     </Container>
   );
 };
-
 
 export default FormLoader;
