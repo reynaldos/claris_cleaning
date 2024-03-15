@@ -15,7 +15,9 @@ export const FormWrap = styled.form`
   flex-direction: column;
   gap: 16px;
 
-  & > span {
+  position: relative;
+
+  &>span {
     display: flex;
     gap: 16px;
 

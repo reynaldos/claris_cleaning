@@ -9,10 +9,16 @@ import TextArea from "../../Inputs/TextArea";
 
 import { useForm, useWatch, Controller } from "react-hook-form";
 import { formatPhoneNumber } from "@/utils/sting";
+import emailjs from "@emailjs/browser";
+import FormLoader, { EmailStateEnum } from "@/components/FormLoader";
+
+const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
 
 const ContactForm = () => {
   // Forms
   const {
+    reset,
     handleSubmit,
     formState: { errors },
     control,
@@ -20,19 +26,36 @@ const ContactForm = () => {
   } = useForm({
     defaultValues: {
       name: "",
-      phone: "",
+      phoneNumber: "",
       email: "",
       message: "",
     },
   });
-  const name = watch("name");
-  const phone = watch("phone");
-  const email = watch("email");
-  const message = watch("message");
 
-  const handleFormSubmit = (data: any) => {
-    console.log(data);
-    console.table({ name, phone: formatPhoneNumber(phone), email, message });
+  const [emailState, setEmailState] = useState(EmailStateEnum.IDLE);
+
+  const handleFormSubmit = async (data: any) => {
+    console.table({
+      ...data,
+      phoneNumber: formatPhoneNumber(data.phoneNumber),
+    });
+
+    setEmailState(EmailStateEnum.LOADING);
+    try {
+      const result = await emailjs.send(serviceID, templateID, {
+        ...data,
+        phoneNumber: formatPhoneNumber(data.phoneNumber),
+      });
+      console.log(result.text);
+      setEmailState(EmailStateEnum.SENT);
+
+      reset();
+    } catch (error: any) {
+      setEmailState(EmailStateEnum.ERROR);
+      console.log(error.text);
+    }
+
+
   };
 
   return (
@@ -66,11 +89,13 @@ const ContactForm = () => {
               onChange={onChange}
               onBlur={onBlur}
               value={formatPhoneNumber(value)}
-              error={errors.phone && true}
-              errorMessage={errors.phone?.message || "Invalid phone number"}
+              error={errors.phoneNumber && true}
+              errorMessage={
+                errors.phoneNumber?.message || "Invalid phone number"
+              }
             />
           )}
-          name="phone"
+          name="phoneNumber"
           control={control}
           rules={{
             required: false,
@@ -140,6 +165,10 @@ const ContactForm = () => {
       >
         Send Message
       </Button>
+
+      {emailState !== EmailStateEnum.IDLE && (
+        <FormLoader email={{ emailState, setEmailState }} />
+      )}
     </FormWrap>
   );
 };
