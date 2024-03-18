@@ -30,7 +30,10 @@ const ContactIntro = () => {
           <span>
             <label>Phone Number</label>
 
-            <a href={`tel:${BUSINESS_PHONE}`}>
+            <a
+              aria-label="Claris Cleaning Phone number"
+              href={`tel:${BUSINESS_PHONE}`}
+            >
               {formatPhoneNumber(BUSINESS_PHONE)}
             </a>
           </span>
@@ -45,6 +48,7 @@ const ContactIntro = () => {
             <label>Email</label>
 
             <a
+              aria-label="Claris Cleaning Email"
               href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
             >
               {BUSINESS_EMAIL}
@@ -60,7 +64,10 @@ const ContactIntro = () => {
           <span>
             <label>Address</label>
 
-            <a href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}>
+            <a
+              aria-label="Claris Cleaning Location"
+              href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}
+            >
               {BUSINESS_ADDRESS}
             </a>
           </span>
