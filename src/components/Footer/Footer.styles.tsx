@@ -12,11 +12,11 @@ export const FooterConainer = styled.footer`
   font-size: 1rem;
 
   background-color: ${({ theme }) => theme.colors.primary};
-  background-image: url("/assets/footerTile.png");
+  background-image: url("/assets/footerTile.webp");
   background-repeat: repeat;
   background-size: 45px 45px;
   z-index: 1;
-  background: url("/assets/footerTile.png"), lightgray 0% 0% / 45px 45px repeat,
+  background: url("/assets/footerTile.webp"), lightgray 0% 0% / 45px 45px repeat,
     ${({ theme }) => theme.colors.primary};
 
   span {

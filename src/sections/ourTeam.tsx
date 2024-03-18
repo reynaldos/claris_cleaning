@@ -4,7 +4,7 @@ import SectionComponent from "@/components/Section";
 
 import { FaPhone } from 'react-icons/fa6';
 
-import TeamImg from '@/assets/team.png'
+import TeamImg from '@/assets/team.webp'
 import { PAGE_ROUTE } from '@/constants/info';
 
 const OurTeam = () => {

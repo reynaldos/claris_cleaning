@@ -2,7 +2,7 @@
 import React from 'react';
 import SectionComponent from "@/components/Section";
 
-import CleanProducts from "@/assets/greenCleaning.png";
+import CleanProducts from "@/assets/greenCleaning.webp";
 import { MELALEUCA_LINK, BUSINESS_PHONE } from '@/constants/info';
 import { FaPhone } from 'react-icons/fa6';
 

@@ -1,9 +1,9 @@
 const bannerImages: any = {
-  home: "./assets/homeBanner.jpg",
-  about: "./assets/aboutBanner.jpg",
-  services: "./assets/servicesBanner.jpeg",
-  contact: "./assets/contactBanner.jpg",
-  quote: "./assets/quoteBanner.png",
+  home: "./assets/homeBanner.webp",
+  about: "./assets/aboutBanner.webp",
+  services: "./assets/servicesBanner.webp",
+  contact: "./assets/contactBanner.webp",
+  quote: "./assets/quoteBanner.webp",
 };
 
 
