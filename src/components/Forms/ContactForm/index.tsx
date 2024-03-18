@@ -159,6 +159,7 @@ const ContactForm = () => {
         />
       </span>
       <Button
+        aria-label="Submit form"
         style={{ width: "fit-content" }}
         type="submit"
         // onClick={handleFormSubmit}

@@ -2,10 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
-import {
-  BottomNavContainer,
-  TopNavContainer,
-} from "./Navbar.styles";
+import { BottomNavContainer, TopNavContainer } from "./Navbar.styles";
 import { Links } from "./Links";
 
 import { FaFacebook, FaPhone } from "react-icons/fa6";
@@ -13,12 +10,15 @@ import { IoIosMail } from "react-icons/io";
 import Logo from "@/assets/ccc_logo.png";
 import { MaxWidthWrapper } from "../Container";
 
-import { BUSINESS_EMAIL, BUSINESS_PHONE, FACEBOOK_LINK, PAGE_ROUTE } from "@/constants/info";
+import {
+  BUSINESS_EMAIL,
+  BUSINESS_PHONE,
+  FACEBOOK_LINK,
+  PAGE_ROUTE,
+} from "@/constants/info";
 import { formatPhoneNumber } from "@/utils/sting";
 
 const Navbar = () => {
- 
-
   return (
     <>
       {/* main nav */}
@@ -58,17 +58,17 @@ const Navbar = () => {
 
       {/* mobile bottom nav */}
       <BottomNavContainer>
-        <button>
+        <button aria-label={`Facebook`} role="link">
           <a href={FACEBOOK_LINK} target="_blank">
             <FaFacebook size={38} />
           </a>
         </button>
-        <button>
+        <button aria-label={`Phone number`} role="link">
           <a href={`tel:${BUSINESS_PHONE}`}>
             <FaPhone size={40} />
           </a>
         </button>
-        <button>
+        <button aria-label={`Email`} role="link">
           <a
             href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
           >

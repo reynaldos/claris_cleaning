@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-import React, { useRef, useState } from 'react'
-import { ButtonWrap, VideoContainer, VideoWrapper } from './videoBox.styles';
-import { RxTriangleRight } from 'react-icons/rx';
+import React, { useRef, useState } from "react";
+import { ButtonWrap, VideoContainer, VideoWrapper } from "./videoBox.styles";
+import { RxTriangleRight } from "react-icons/rx";
 
-import AdPoster from "@/assets/adPoster.png"
+import AdPoster from "@/assets/adPoster.png";
 
 const VideoBox = () => {
-
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlayig, setIsPlaying] = useState(false);
-  const [language, setLanguage] = useState<'eng' | 'esp'>('eng')
+  const [language, setLanguage] = useState<"eng" | "esp">("eng");
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -28,9 +27,9 @@ const VideoBox = () => {
     }
   };
 
-  const toggleLanguage = () =>{
-    setLanguage((old)=>old==='eng' ? 'esp' : 'eng')
-  }
+  const toggleLanguage = () => {
+    setLanguage((old) => (old === "eng" ? "esp" : "eng"));
+  };
 
   return (
     <VideoContainer>
@@ -43,7 +42,7 @@ const VideoBox = () => {
           onPause={handlePause}
           width={"100%"}
           src={`./CCC_ad_${language}.mp4`}
-          poster={'./assets/adPoster.png'}
+          poster={"./assets/adPoster.png"}
         />
 
         {!isPlayig && (
@@ -59,12 +58,14 @@ const VideoBox = () => {
 
       <ButtonWrap>
         <button
+          aria-label={`Play ad in english`}
           onClick={toggleLanguage}
           className={language === "eng" ? "active" : ""}
         >
           English
         </button>
         <button
+          aria-label={`Play ad in spanish`}
           onClick={toggleLanguage}
           className={language === "esp" ? "active" : ""}
         >
@@ -73,6 +74,6 @@ const VideoBox = () => {
       </ButtonWrap>
     </VideoContainer>
   );
-}
+};
 
-export default VideoBox
+export default VideoBox;

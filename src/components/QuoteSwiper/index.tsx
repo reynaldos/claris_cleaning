@@ -113,11 +113,11 @@ const QuoteSwiper = () => {
         </SwiperStyled>
       )}
       <BtnWrap>
-        <button className="prev">
+        <button aria-label={`Show previous quote`} className="prev">
           <FaChevronLeft />
         </button>
 
-        <button className="next">
+        <button aria-label={`Show next quote`}  className="next">
           <FaChevronRight />
         </button>
       </BtnWrap>

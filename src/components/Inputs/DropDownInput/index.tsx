@@ -83,6 +83,7 @@ const DropDownInput = ({
       <OptionsList $isOpen={menuOpen}>
         {options.map((option, index) => (
           <button
+            aria-label={`Options Dropdown`}
             className={`${option === value ? "active" : ""}`}
             key={index}
             onClick={(e) => {

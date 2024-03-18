@@ -19,9 +19,9 @@ const ServiceCard = ({ title, description, image }: CardProps) => {
       <div className="content">
         <h2>{title}</h2>
         <p>{description}</p>
-        <a href={`tel:${BUSINESS_PHONE}`}>
+        {/* <a href={`tel:${BUSINESS_PHONE}`}>
           <Button>Learn More</Button>
-        </a>
+        </a> */}
       </div>
     </CardContainer>
   );

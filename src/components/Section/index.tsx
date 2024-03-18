@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { ReactElement, PropsWithChildren } from "react";
 
@@ -16,13 +16,13 @@ import Button from "../Buttons";
 export interface SectionButton {
   linkType: "internal" | "external";
   href: string;
-  label: string | any ;
+  label: string | any;
 }
 
 interface SectionType
   extends PropsWithChildren<React.HTMLAttributes<HTMLDivElement>> {
   backgroundColor?: string | undefined;
-  title?: string  | undefined;
+  title?: string | undefined;
   titleAlign?: "center" | "left" | "right" | undefined;
   content?: string | undefined;
   maxImageWidth?: string | undefined;
@@ -39,15 +39,15 @@ interface SectionType
 const SectionComponent = ({
   backgroundColor = "#FFF",
   title,
-  titleAlign = 'left',
+  titleAlign = "left",
   content,
   image,
   reverse = false,
   primaryButton,
   secondaryButton,
   children,
-  maxImageWidth = '390px',
-  sectionsType = 'double'
+  maxImageWidth = "390px",
+  sectionsType = "double",
 }: SectionType) => {
   return (
     <SectionContainer $backgroundColor={backgroundColor}>
@@ -78,12 +78,16 @@ const SectionComponent = ({
                 (primaryButton.linkType === "external" ? (
                   // links to external page
                   <a href={primaryButton.href} target="_blank">
-                    <Button>{primaryButton.label}</Button>
+                    <Button aria-label={primaryButton.label} role="link">
+                      {primaryButton.label}
+                    </Button>
                   </a>
                 ) : (
                   // links to internal page
                   <Link href={primaryButton.href}>
-                    <Button>{primaryButton.label}</Button>
+                    <Button aria-label={primaryButton.label} role="link">
+                      {primaryButton.label}
+                    </Button>
                   </Link>
                 ))}
               {/* right button */}
@@ -91,12 +95,16 @@ const SectionComponent = ({
                 (secondaryButton.linkType === "external" ? (
                   // links to external page
                   <a href={secondaryButton.href} target="_blank">
-                    <Button>{secondaryButton.label}</Button>
+                    <Button aria-label={secondaryButton.label} role="link">
+                      {secondaryButton.label}
+                    </Button>
                   </a>
                 ) : (
                   // links to internal page
                   <Link href={secondaryButton.href}>
-                    <Button>{secondaryButton.label}</Button>
+                    <Button aria-label={secondaryButton.label} role="link">
+                      {secondaryButton.label}
+                    </Button>
                   </Link>
                 ))}
             </ButtonWrap>
