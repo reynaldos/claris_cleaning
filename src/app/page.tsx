@@ -40,7 +40,7 @@ export default function Home() {
             </div>
           </span>
           <Link href={PAGE_ROUTE.FREE_QUOTE}>
-            <Button>Book Your Cleaning Today</Button>
+            <Button aria-label="Book Your Cleaning">Book Your Cleaning Today</Button>
           </Link>
         </ContentWrap>
       </BannerSection>

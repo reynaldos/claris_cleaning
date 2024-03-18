@@ -115,7 +115,7 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
       color: ${({ theme }) => theme.colors.gold400};
     }
 
-    h6 {
+    h5 {
       font-size: 12px;
       white-space: pre-line;
       text-align: center;

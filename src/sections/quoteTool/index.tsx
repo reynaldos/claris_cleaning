@@ -20,7 +20,7 @@ const QuoteTool = () => {
             Quote Tool
           </h1>
           <Link href={PAGE_ROUTE.FREE_QUOTE}>
-            <Button> Get A Quote</Button>
+            <Button aria-label={`Get a free quote`} role="link"> Get A Quote</Button>
           </Link>
         </span>
         <span>

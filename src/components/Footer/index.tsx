@@ -1,15 +1,20 @@
-import React from 'react';
-import { FooterConainer, FooterWrap } from './Footer.styles'
-import routes from '@/components/Navbar/routes';
-import Link from 'next/link';
+import React from "react";
+import { FooterConainer, FooterWrap } from "./Footer.styles";
+import routes from "@/components/Navbar/routes";
+import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/assets/ccc_logo.png";
 import Melaleuca from "@/assets/melaleuca_logo.png";
 
-
-import { FaClock, FaFacebook, FaInstagram, FaLocationDot, FaPhone } from 'react-icons/fa6';
-import { IoIosMail } from 'react-icons/io';
-import Button from '../Buttons';
+import {
+  FaClock,
+  FaFacebook,
+  FaInstagram,
+  FaLocationDot,
+  FaPhone,
+} from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
+import Button from "../Buttons";
 
 import {
   BUSINESS_ADDRESS,
@@ -22,9 +27,8 @@ import {
   PAGE_ROUTE,
   SURVEY_LINK,
 } from "@/constants/info";
-import navRoutes from '@/components/Navbar/routes';
-import { formatPhoneNumber } from '@/utils/sting';
-
+import navRoutes from "@/components/Navbar/routes";
+import { formatPhoneNumber } from "@/utils/sting";
 
 const Footer = () => {
   return (
@@ -56,13 +60,17 @@ const Footer = () => {
           </div>
           <div>
             <a href={SURVEY_LINK} target="_blank">
-              <Button>Take Survey</Button>
+              <Button role="link" aria-label="Take Survey">
+                Take Survey
+              </Button>
             </a>
             <Link href={PAGE_ROUTE.FREE_QUOTE}>
-              <Button>Get A Free Quote</Button>
+              <Button role="link" aria-label="Get a free quote">
+                Get A Free Quote
+              </Button>
             </Link>
             <a href={`tel:${BUSINESS_PHONE}`}>
-              <Button>
+              <Button role="link" aria-label="Call Claris Cleaning">
                 <FaPhone size={18} />
                 Call Us Now
               </Button>
@@ -107,7 +115,6 @@ const Footer = () => {
       </span>
     </FooterConainer>
   );
-}
+};
 
-export default Footer
-
+export default Footer;

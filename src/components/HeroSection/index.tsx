@@ -1,9 +1,9 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from "react";
 
-import { HeroContainer, HeroWrapper } from './HeroSection.styles';
-import Button from '../Buttons';
-import { SectionButton } from '../Section';
-import Link from 'next/link';
+import { HeroContainer, HeroWrapper } from "./HeroSection.styles";
+import Button from "../Buttons";
+import { SectionButton } from "../Section";
+import Link from "next/link";
 
 interface HeroSectionType
   extends PropsWithChildren<React.HTMLAttributes<HTMLDivElement>> {
@@ -29,25 +29,35 @@ const HeroSection = ({
             (primaryButton.linkType === "external" ? (
               // links to external page
               <a href={primaryButton.href} target="_blank">
-                <Button>{primaryButton.label}</Button>
+                <Button aria-label={`${primaryButton.label}`}>
+                  {primaryButton.label}
+                </Button>
               </a>
             ) : (
               // links to internal page
               <Link href={primaryButton.href}>
-                <Button>{primaryButton.label}</Button>
+                <Button aria-label={`${primaryButton.label}`}>
+                  {primaryButton.label}
+                </Button>
               </Link>
             ))}
           {/* right button */}
           {secondaryButton &&
             (secondaryButton.linkType === "external" ? (
               // links to external page
-              <a href={secondaryButton.href} target="_blank">
+              <a
+                aria-label={`${secondaryButton.label}`}
+                href={secondaryButton.href}
+                target="_blank"
+              >
                 <Button>{secondaryButton.label}</Button>
               </a>
             ) : (
               // links to internal page
               <Link href={secondaryButton.href}>
-                <Button>{secondaryButton.label}</Button>
+                <Button aria-label={`${secondaryButton.label}`}>
+                  {secondaryButton.label}
+                </Button>
               </Link>
             ))}
         </span>
@@ -56,4 +66,4 @@ const HeroSection = ({
   );
 };
 
-export default HeroSection
+export default HeroSection;

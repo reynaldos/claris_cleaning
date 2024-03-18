@@ -200,6 +200,7 @@ const QuoteForm = () => {
         <span className="services">
           {quoteServices.map((service, index) => (
             <button
+              aria-label={`Service-${service.label}`}
               key={index}
               className={`serviceButton ${
                 quoteField.services.includes(service.label) ? "active" : ""
@@ -236,6 +237,7 @@ const QuoteForm = () => {
       {/* -- BUTTONS -- */}
       <span className="buttonWrap">
         <Button
+          aria-label="Next Quote Page"
           disabled={isNextDisabled()}
           onClick={(e) => {
             e.preventDefault();
@@ -348,8 +350,7 @@ const QuoteForm = () => {
               required: true,
               validate: {
                 maxLength: (v) =>
-                  v.length > 16  ||
-                  "The phone number needs to be 10 characters",
+                  v.length > 16 || "The phone number needs to be 10 characters",
                 // matchPattern: (v) =>
                 //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
                 //   "Invalid phone number pattern",
@@ -446,6 +447,7 @@ const QuoteForm = () => {
       {/* -- BUTTONS -- */}
       <span className="buttonWrap">
         <Button
+          aria-label="Back Quote Page"
           onClick={() => {
             window.scrollTo({
               top: 0,
@@ -456,7 +458,11 @@ const QuoteForm = () => {
         >
           Previous
         </Button>
-        <Button type="submit" disabled={isSubmitDisabled()}>
+        <Button
+          aria-label="Submit Quote form"
+          type="submit"
+          disabled={isSubmitDisabled()}
+        >
           Submit
         </Button>
       </span>
@@ -470,9 +476,10 @@ const QuoteForm = () => {
       </FormWrapper>
       {emailState !== EmailStateEnum.IDLE && (
         <LoadWrapper>
-          <FormLoader 
+          <FormLoader
             label={`Thank you for using our quote tool,\nwe will be sending you quote shortly!`}
-            email={{ emailState, setEmailState }} />
+            email={{ emailState, setEmailState }}
+          />
         </LoadWrapper>
       )}
     </>

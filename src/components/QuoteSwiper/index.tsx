@@ -106,18 +106,18 @@ const QuoteSwiper = () => {
               <div className="contentWrap">
                 <p>{quote.statement}</p>
                 <h4>{quote.author}</h4>
-                <h6>{quote.title ?? `\n`}</h6>
+                <h5>{quote.title ?? `\n`}</h5>
               </div>
             </SwiperSlideStyled>
           ))}
         </SwiperStyled>
       )}
       <BtnWrap>
-        <button className="prev">
+        <button aria-label={`Show previous quote`} className="prev">
           <FaChevronLeft />
         </button>
 
-        <button className="next">
+        <button aria-label={`Show next quote`} className="next">
           <FaChevronRight />
         </button>
       </BtnWrap>

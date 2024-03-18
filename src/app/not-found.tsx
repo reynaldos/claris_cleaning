@@ -19,7 +19,7 @@ const ErrorPage = () => {
       <span>
         <h1>Page Not Found!</h1>
         <Link href={PAGE_ROUTE.HOME}>
-          <Button>Go Back Home</Button>
+          <Button aria-label="Back Home">Go Back Home</Button>
         </Link>
       </span>
     </Errorbox>
