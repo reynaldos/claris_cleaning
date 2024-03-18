@@ -108,14 +108,14 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
       }
     }
 
-    h4 {
+    h1 {
       font-size: 22px;
       margin-top: 8px;
       text-align: center;
       color: ${({ theme }) => theme.colors.gold400};
     }
 
-    h5 {
+    h2 {
       font-size: 12px;
       white-space: pre-line;
       text-align: center;

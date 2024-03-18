@@ -105,8 +105,8 @@ const QuoteSwiper = () => {
 
               <div className="contentWrap">
                 <p>{quote.statement}</p>
-                <h4>{quote.author}</h4>
-                <h5>{quote.title ?? `\n`}</h5>
+                <h1>{quote.author}</h1>
+                <h2>{quote.title ?? `\n`}</h2>
               </div>
             </SwiperSlideStyled>
           ))}
