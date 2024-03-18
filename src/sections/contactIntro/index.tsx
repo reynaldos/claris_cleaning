@@ -8,6 +8,7 @@ import {
   BUSINESS_ADDRESS,
   BUSINESS_EMAIL,
   BUSINESS_PHONE,
+  GOOGLE_MAPS_LINK,
 } from "@/constants/info";
 import { formatPhoneNumber } from "@/utils/sting";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
@@ -15,10 +16,11 @@ import { IoIosMail } from "react-icons/io";
 
 const ContactIntro = () => {
   return (
-    <SectionComponent 
-    title="Information" 
-    titleAlign="center"
-    sectionsType="single">
+    <SectionComponent
+      title="Information"
+      titleAlign="center"
+      sectionsType="single"
+    >
       <ContactStrip>
         {/* phone */}
         <div>
@@ -50,7 +52,7 @@ const ContactIntro = () => {
           </span>
         </div>
 
-      {/* address */}
+        {/* address */}
         <div>
           <div className="svgWrap">
             <FaLocationDot size={20} />
@@ -58,11 +60,13 @@ const ContactIntro = () => {
           <span>
             <label>Address</label>
 
-            <a>{BUSINESS_ADDRESS}</a>
+            <a href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}>
+              {BUSINESS_ADDRESS}
+            </a>
           </span>
         </div>
       </ContactStrip>
-      
+
       <ContactForm />
     </SectionComponent>
   );

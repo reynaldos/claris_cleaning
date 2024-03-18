@@ -11,7 +11,17 @@ import { FaClock, FaFacebook, FaInstagram, FaLocationDot, FaPhone } from 'react-
 import { IoIosMail } from 'react-icons/io';
 import Button from '../Buttons';
 
-import { BUSINESS_ADDRESS, BUSINESS_EMAIL, BUSINESS_PHONE, DEV_LINK, FACEBOOK_LINK, INSTAGRAM_LINK, PAGE_ROUTE, SURVEY_LINK } from '@/constants/info';
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_EMAIL,
+  BUSINESS_PHONE,
+  GOOGLE_MAPS_LINK,
+  DEV_LINK,
+  FACEBOOK_LINK,
+  INSTAGRAM_LINK,
+  PAGE_ROUTE,
+  SURVEY_LINK,
+} from "@/constants/info";
 import navRoutes from '@/components/Navbar/routes';
 import { formatPhoneNumber } from '@/utils/sting';
 
@@ -74,7 +84,7 @@ const Footer = () => {
             {BUSINESS_EMAIL}
           </a>
 
-          <a>
+          <a href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}>
             <FaLocationDot size={20} />
             {BUSINESS_ADDRESS}
           </a>
