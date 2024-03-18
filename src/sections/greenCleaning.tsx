@@ -20,7 +20,7 @@ const GreenCleaning = () => {
         src: CleanProducts,
       }}
       primaryButton={{
-        label: "Learn More",
+        label: "View Products",
         linkType: "external",
         href: MELALEUCA_LINK,
       }}
