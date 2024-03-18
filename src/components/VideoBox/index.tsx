@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { ButtonWrap, VideoContainer, VideoWrapper } from "./videoBox.styles";
 import { RxTriangleRight } from "react-icons/rx";
 
-import AdPoster from "@/assets/adPoster.png";
+import AdPoster from "@/assets/adPoster.webp";
 
 const VideoBox = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -42,7 +42,7 @@ const VideoBox = () => {
           onPause={handlePause}
           width={"100%"}
           src={`./CCC_ad_${language}.mp4`}
-          poster={"./assets/adPoster.png"}
+          poster={"./assets/adPoster.webp"}
         />
 
         {!isPlayig && (

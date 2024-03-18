@@ -2,7 +2,7 @@
 import React from 'react';
 import SectionComponent from "@/components/Section";
 
-import AreaMap from "@/assets/serviceArea.png";
+import AreaMap from "@/assets/serviceArea.webp";
 import StarIcon from "@/assets/icons/star";
 
 import { PAGE_ROUTE } from "@/constants/info";

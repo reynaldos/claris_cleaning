@@ -8,10 +8,10 @@ import { CardWrapper } from "./serviceIntro.styles";
 
 
 // images
-import Residential from "@/assets/house.jpeg";
-import Office from "@/assets/office_cleaning.jpg";
-import Construction from "@/assets/construction.jpg";
-import Personalized from "@/assets/personalized.jpg";
+import Residential from "@/assets/house.webp";
+import Office from "@/assets/office_cleaning.webp";
+import Construction from "@/assets/construction.webp";
+import Personalized from "@/assets/personalized.webp";
 import ServiceCard from "@/components/ServiceCard";
 
 const ServicesIntro = () => {

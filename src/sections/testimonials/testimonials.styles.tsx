@@ -16,7 +16,7 @@ export const SectionContainer = styled.section`
       rgba(2, 111, 157, 0.75) 0%,
       rgba(2, 111, 157, 0.75) 100%
     ),
-    url("./assets/testimonialsBG.png"),
+    url("./assets/testimonialsBG.webp"),
     lightgray -3px -257.775px / 100.124% 191.423% no-repeat;
 
   background-position: 0%;

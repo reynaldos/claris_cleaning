@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.png?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791",
+        url: "https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.webp?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791",
         width: 1200,
         height: 629,
         alt: "Clari's Cleaning Crew",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       "Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services",
     images: [
       {
-        url: "https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.png?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791",
+        url: "https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.webp?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791",
         width: 1200,
         height: 629,
         alt: "Clari's Cleaning Crew",
@@ -51,18 +51,18 @@ export const metadata: Metadata = {
   // ICONS
   icons: {
     icon: "",
-    shortcut: ["/logo/ccc_logo_180x180.png"],
+    shortcut: ["/logo/ccc_logo_180x180.webp"],
     apple: [
-      { url: "/logo/ccc_logo_32x32.png" },
+      { url: "/logo/ccc_logo_32x32.webp" },
       {
-        url: "/logo/ccc_logo_180x180.png",
+        url: "/logo/ccc_logo_180x180.webp",
         sizes: "180x180",
-        type: "image/png",
+        type: "image/webp",
       },
     ],
     other: {
-      rel: "/logo/ccc_logo_16x16.png",
-      url: "/logo/ccc_logo_16x16.png",
+      rel: "/logo/ccc_logo_16x16.webp",
+      url: "/logo/ccc_logo_16x16.webp",
     },
   },
   appleWebApp: {
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 <meta property="og:type" content="website"/>;
 <meta property="og:title" content="Clari&apos;s Cleaning Crew"/>;
 <meta property="og:description" content="Cleaning Services: Contact Clari&apos;s Cleaning Company for the best in residential, commercial, and construction cleaning services."/>;
-<meta property="og:image" content="https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.png?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791"/>; */
+<meta property="og:image" content="https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.webp?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791"/>; */
 }
 
 // <!-- Twitter Meta Tags -->
@@ -105,27 +105,27 @@ export const metadata: Metadata = {
 <meta property="twitter:url" content="https://claris-cleaning.vercel.app"/>;
 <meta name="twitter:title" content="Clari&apos;s Cleaning Crew"/>;
 <meta name="twitter:description" content="Cleaning Services: Contact Clari&apos;s Cleaning Company for the best in residential, commercial, and construction cleaning services."/>;
-<meta name="twitter:image" content="https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.png?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791"/>;
+<meta name="twitter:image" content="https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.webp?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791"/>;
  */
 }
 
-{/* <link rel="shortcut icon" sizes="180x180" href="./logo/ccc_logo_180x180.png" />;
+{/* <link rel="shortcut icon" sizes="180x180" href="./logo/ccc_logo_180x180.webp" />;
 <link
   rel="icon"
-  type="image/png"
+  type="image/webp"
   sizes="32x32"
-  href="./logo/ccc_logo_32x32.png"
+  href="./logo/ccc_logo_32x32.webp"
 />;
 <link
   rel="icon"
-  type="image/png"
+  type="image/webp"
   sizes="16x16"
-  href="./assets/logo/logo-16x16.png"
+  href="./assets/logo/logo-16x16.webp"
 />;
 <link
   rel="apple-touch-icon"
   sizes="180x180"
-  href="./logo/ccc_logo_16x16.png"
+  href="./logo/ccc_logo_16x16.webp"
 />; */}
 
 {

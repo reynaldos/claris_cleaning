@@ -5,7 +5,7 @@ import { ServiceButton, ServiceWrap } from "./homeIntro.styles";
 
 import { BUSINESS_PHONE, PAGE_ROUTE } from "@/constants/info";
 
-import HomeImg from "@/assets/homeImg.png";
+import HomeImg from "@/assets/homeImg.webp";
 import { white300 } from "@/constants/colors";
 
 // icons

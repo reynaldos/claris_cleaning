@@ -3,8 +3,8 @@ import { FooterConainer, FooterWrap } from "./Footer.styles";
 import routes from "@/components/Navbar/routes";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/assets/ccc_logo.png";
-import Melaleuca from "@/assets/melaleuca_logo.png";
+import Logo from "@/assets/ccc_logo.webp";
+import Melaleuca from "@/assets/melaleuca_logo.webp";
 
 import {
   FaClock,
