@@ -40,10 +40,18 @@ const Footer = () => {
             <Image src={Logo} alt={"Claris Cleaning Crew Logo"} />
           </div>
           <div>
-            <a href={FACEBOOK_LINK} target="_blank">
+            <a
+              aria-label="Claris Cleaning Facebook"
+              href={FACEBOOK_LINK}
+              target="_blank"
+            >
               <FaFacebook size={40} />
             </a>
-            <a href={INSTAGRAM_LINK} target="_blank">
+            <a
+              aria-label="Claris Cleaning Instagram"
+              href={INSTAGRAM_LINK}
+              target="_blank"
+            >
               <FaInstagram size={40} />
             </a>
           </div>
@@ -80,19 +88,26 @@ const Footer = () => {
 
         {/* about */}
         <section className="infoStrip">
-          <a href={`tel:${BUSINESS_PHONE}`}>
+          <a
+            aria-label="Claris Cleaning Phone NUmber"
+            href={`tel:${BUSINESS_PHONE}`}
+          >
             <FaPhone size={18} />
             {formatPhoneNumber(BUSINESS_PHONE)}
           </a>
 
           <a
+            aria-label="Claris Cleaning Email"
             href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
           >
             <IoIosMail size={24} />
             {BUSINESS_EMAIL}
           </a>
 
-          <a href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}>
+          <a
+            aria-label="Claris Cleaning Location"
+            href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}
+          >
             <FaLocationDot size={20} />
             {BUSINESS_ADDRESS}
           </a>
@@ -105,7 +120,11 @@ const Footer = () => {
       </FooterWrap>
 
       <span>
-        <a href={DEV_LINK} target="_blank">
+        <a
+          aria-label="Website designer and builder portfolio"
+          href={DEV_LINK}
+          target="_blank"
+        >
           Designed & Built By Rey Sanchez
         </a>
         <p>
