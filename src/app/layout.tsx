@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "https://opengraph.b-cdn.net/production/documents/13d4dd49-5a39-48c8-8643-fb9009f5cd3a.webp?token=VZ8-8cNLhjeAghJTNjRiX8RNC9sQ10AAWs8AHpKLwb4&height=629&width=1200&expires=33244471791",
+        url: "https://www.clariscleaning.com/_next/static/media/share.0785a405.webp",
         width: 1200,
         height: 629,
         alt: "Clari's Cleaning Crew",

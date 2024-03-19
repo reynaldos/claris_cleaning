@@ -80,6 +80,7 @@ const ContactForm = () => {
           control={control}
           rules={{ minLength: 3, required: true }}
         />
+        
 
         <Controller
           render={({ field: { onChange, onBlur, value } }) => (
@@ -100,8 +101,7 @@ const ContactForm = () => {
           rules={{
             required: false,
             validate: {
-              maxLength: (v) =>
-                v.length <= 10 || "The phone number needs to be 10 characters",
+              maxLength: (v) => v.length < 17 || "The phone number needs to be 10 characters",
               // matchPattern: (v) =>
               //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
               //   "Invalid phone number pattern",

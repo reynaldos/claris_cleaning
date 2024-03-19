@@ -350,7 +350,7 @@ const QuoteForm = () => {
               required: true,
               validate: {
                 maxLength: (v) =>
-                  v.length > 16 || "The phone number needs to be 10 characters",
+                  v.length < 17 || "The phone number needs to be 10 characters",
                 // matchPattern: (v) =>
                 //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
                 //   "Invalid phone number pattern",
