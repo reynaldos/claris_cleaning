@@ -26,7 +26,7 @@ const FormLoader = ({
     )
       setTimeout(() => {
         setEmailState(EmailStateEnum.IDLE);
-      }, 2000);
+      }, 5000);
   }, [emailState]);
 
   return (
