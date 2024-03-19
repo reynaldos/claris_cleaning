@@ -68,7 +68,6 @@ const QuoteForm = () => {
       email: "",
       phone: "",
       zipcode: "",
-      message: "",
     },
   });
 
@@ -112,6 +111,7 @@ const QuoteForm = () => {
     try {
       const result = await emailjs.send(serviceID, quoteTemplateID, {
         ...quoteField,
+        services: quoteField.services.toString().replace(/\n/g, ""),
         ...{
           firstName,
           lastName,
