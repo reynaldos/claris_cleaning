@@ -59,17 +59,28 @@ const Navbar = () => {
       {/* mobile bottom nav */}
       <BottomNavContainer>
         <button aria-label={`Facebook`} role="link">
-          <a href={FACEBOOK_LINK} target="_blank">
+          <a
+            aria-label={`Claris Cleaning Facebook`}
+            role="link"
+            href={FACEBOOK_LINK}
+            target="_blank"
+          >
             <FaFacebook size={38} />
           </a>
         </button>
-        <button aria-label={`Phone number`} role="link">
-          <a href={`tel:${BUSINESS_PHONE}`}>
+        <button aria-label={`Claris Cleaning Phone number`} role="link">
+          <a
+            aria-label={`Claris Cleaning Phone number`}
+            role="link"
+            href={`tel:${BUSINESS_PHONE}`}
+          >
             <FaPhone size={40} />
           </a>
         </button>
-        <button aria-label={`Email`} role="link">
+        <button aria-label={`Claris Cleaning Email`} role="link">
           <a
+            aria-label={`Claris Cleaning Email`}
+            role="link"
             href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
           >
             <IoIosMail size={38} />
