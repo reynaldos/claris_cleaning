@@ -1,3 +1,19 @@
+
+<div align="center">
+  <img alt="Logo" src="https://www.clariscleaning.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fccc_logo.6fb42b9e.webp&w=640&q=100" width="300" />
+</div>
+
+<h1 align="center">
+  Cleaning Services Website
+</h1>
+
+<p align="center">
+  A cleaning services store front website built with <a href="https://nextjs.org/" target="_blank">Next Js</a> and hosted with <a href="https://vercel.com/" target="_blank">Vercel</a>. (<a href="https://www.clariscleaning.com" target="_blank">clariscleaning.com</a>)
+</p>
+
+![App Screenshot](https://www.clariscleaning.com/_next/static/media/share.0785a405.webp)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
