@@ -1,5 +1,6 @@
-export const SITE_URL = "https://claris-cleaning.vercel.app";
+export const SITE_URL = "https://www.clariscleaning.com";
 
+export const GOOGLE_ANALYTICS = "G-RWPYPC6323";
 
 export const BUSINESS_PHONE = "8638087666";
 export const BUSINESS_EMAIL = "gabriel@clariscleaning.com";
