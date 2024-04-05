@@ -68,8 +68,8 @@ const Footer = () => {
           </div>
           <div>
             <a href={SURVEY_LINK} target="_blank">
-              <Button role="link" aria-label="Take Survey">
-                Take Survey
+              <Button role="link" aria-label="Leave A Review">
+                Leave A Review
               </Button>
             </a>
             <Link href={PAGE_ROUTE.FREE_QUOTE}>
