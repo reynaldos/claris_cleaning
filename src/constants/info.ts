@@ -14,7 +14,7 @@ export const INSTAGRAM_LINK =
 export const MELALEUCA_LINK =
   "https://www.melaleuca.com/productstore/cleaning-and-laundry/cleaning";
 
-export const SURVEY_LINK = "https://www.surveymonkey.com/r/VFTMCCR";
+export const SURVEY_LINK = "https://g.page/r/Ce0ccNPETC99EAI/review";
 
 export const DEV_LINK = "https://reysanchez.dev";
 
