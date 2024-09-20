@@ -7,9 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BodyWrap } from "./layout.styles";
 import { GOOGLE_ANALYTICS, SITE_URL } from "@/constants/info";
-import LogRocket from 'logrocket';
-
-LogRocket.init('yeuyxw/claris-cleaning');
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
