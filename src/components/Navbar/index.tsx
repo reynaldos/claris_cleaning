@@ -15,8 +15,10 @@ import {
   BUSINESS_PHONE,
   FACEBOOK_LINK,
   PAGE_ROUTE,
+  SURVEY_LINK,
 } from "@/constants/info";
 import { formatPhoneNumber } from "@/utils/sting";
+import Button from "../Buttons";
 
 const Navbar = () => {
   return (
@@ -27,7 +29,13 @@ const Navbar = () => {
           <MaxWidthWrapper
             style={{ display: "flex", justifyContent: "flex-end" }}
           >
-            <a href={`tel:${BUSINESS_PHONE}`}>
+            <a href={SURVEY_LINK} target="_blank" >
+              <Button role="link" aria-label="Leave A Review" className={'review-btn'}>
+                Leave A Review
+              </Button>
+            </a>
+
+            <a href={`tel:${BUSINESS_PHONE}`} >
               <FaPhone size={18} />
               {formatPhoneNumber(BUSINESS_PHONE)}
             </a>

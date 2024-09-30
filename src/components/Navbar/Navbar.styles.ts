@@ -16,12 +16,12 @@ export const TopNavContainer = styled.nav`
   .bar {
     font-size: 0.85rem;
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem;
     background-color: ${({ theme }) => theme.colors.primary};
 
-    @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+    /* @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
       display: none;
-    }
+    } */
 
     a {
       align-self: flex-end;
@@ -36,6 +36,43 @@ export const TopNavContainer = styled.nav`
       &:hover {
         cursor: pointer;
         color: ${({ theme }) => theme.colors.secondary};
+      }
+    }
+
+    .review-btn {
+      border-radius: 0;
+      height: 100%;
+      padding: 18px;
+      margin-left: 0px;
+      font-size: 0.85rem !important;
+      text-transform: uppercase;
+      letter-spacing: .1ch;
+
+      @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+        position: relative;
+       left: -12px;
+      }
+    }
+
+    a:has(.review-btn){
+      margin-right: auto;
+
+      @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+        position: relative;
+       right: -12px;
+       margin-right: unset;
+      }
+    }
+
+    a:nth-child(2){
+      @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+        display: none;
+      }
+    }
+
+     a:nth-child(3){
+      @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+        display: none;
       }
     }
   }
@@ -178,9 +215,9 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     }
 
     @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
-      top: calc(76px);
+      top: calc(76px + 36px);
       height: ${({ $mobileNavOpen }) =>
-        $mobileNavOpen ? "calc(100svh - 76px)" : "0px"};
+        $mobileNavOpen ? "calc(100svh - 76px - 36px)" : "0px"};
     }
 
     @media screen and (min-width: ${({ theme }) => theme.bpts.md}) {
