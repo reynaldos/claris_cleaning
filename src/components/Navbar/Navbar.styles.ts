@@ -16,7 +16,7 @@ export const TopNavContainer = styled.nav`
   .bar {
     font-size: 0.85rem;
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem;
     background-color: ${({ theme }) => theme.colors.primary};
 
     @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
@@ -38,6 +38,43 @@ export const TopNavContainer = styled.nav`
         color: ${({ theme }) => theme.colors.secondary};
       }
     }
+
+    /* .review-btn {
+      border-radius: 0;
+      height: 100%;
+      padding: 18px;
+      margin-left: 0px;
+      font-size: 0.85rem !important;
+      text-transform: uppercase;
+      letter-spacing: .1ch;
+
+      @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+        position: relative;
+       left: -12px;
+      }
+    }
+
+    a:has(.review-btn){
+      margin-right: auto;
+
+      @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+        position: relative;
+       right: -12px;
+       margin-right: unset;
+      }
+    }
+
+    a:nth-child(2){
+      @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+        display: none;
+      }
+    }
+
+     a:nth-child(3){
+      @media screen and (max-width: ${({ theme }) => theme.bpts.sm}) {
+        display: none;
+      }
+    } */
   }
 
   section {
@@ -61,7 +98,7 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     background-color: transparent;
     color: ${({ theme }) => theme.colors.primary};
 
-    @media screen and (min-width: ${({ theme }) => theme.bpts.md}) {
+    @media screen and (min-width: 820px) {
       display: none;
     }
   }
@@ -77,7 +114,7 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     border-bottom: 2px solid transparent;
 
     transition: border 100ms ease-in, color 100ms ease-in;
-
+    white-space: nowrap;
     &:hover {
       cursor: pointer;
       color: ${({ theme }) => theme.colors.primary};
@@ -98,9 +135,27 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     height: 76px;
     top: -36px;
 
-    @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {
+    @media screen and (max-width: 820px) {
       display: none;
     }
+
+    .nav-btn button{
+      font-size: 18px;
+      text-transform:unset;
+      border:  2px solid ${({ theme }) => `${theme.colors.secondary}`} !important;
+    }
+
+    >:last-child button {
+      background-color: transparent;
+      color: ${({ theme }) => `${theme.colors.secondary}`};
+      margin-left: 8px;
+    }
+
+    .nav-btn button:hover{
+        color: ${({ theme }) => `${theme.colors.white}`};
+        background-color:${({ theme }) => `${theme.colors.secondaryHover}`};
+        border:  2px solid ${({ theme }) => `${theme.colors.secondaryHover}`} !important;
+      }
   }
 
   /* mobile nav */
@@ -165,15 +220,31 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
       display: flex;
       justify-content: center;
       align-items: center;
+      margin:0 16px;
+      gap: 8px;
 
       a {
-        width: fit-content;
-        height: fit-content;
+        flex: 1;
+        
       }
       button {
+        width:100%;
         margin: 24px auto;
-        font-size: 24px;
+        font-size: 18px;
         padding: 16px 24px;
+        border:  2px solid ${({ theme }) => `${theme.colors.secondary}`} !important;
+      }
+
+
+      :last-child button{
+        background-color: transparent;
+        color: ${({ theme }) => `${theme.colors.secondary}`};
+      }
+
+      button:hover, :last-child button:hover{
+        color: ${({ theme }) => `${theme.colors.white}`};
+        background-color:${({ theme }) => `${theme.colors.secondaryHover}`};
+        border:  2px solid ${({ theme }) => `${theme.colors.secondaryHover}`} !important;
       }
     }
 
@@ -183,7 +254,7 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
         $mobileNavOpen ? "calc(100svh - 76px)" : "0px"};
     }
 
-    @media screen and (min-width: ${({ theme }) => theme.bpts.md}) {
+    @media screen and (min-width: 820px) {
       display: none;
     }
   }
