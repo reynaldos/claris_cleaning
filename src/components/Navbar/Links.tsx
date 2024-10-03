@@ -9,7 +9,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 
 import navRoutes from "./routes";
 import Button from "../Buttons";
-import { PAGE_ROUTE } from "@/constants/info";
+import { PAGE_ROUTE, SURVEY_LINK } from "@/constants/info";
 
 import {
   unlock as enableBodyScroll,
@@ -48,11 +48,17 @@ export const Links = () => {
             </button>
           </Link>
         ))}
-        <Link href={PAGE_ROUTE.FREE_QUOTE}>
+        <Link href={PAGE_ROUTE.FREE_QUOTE} className="nav-btn">
           <Button aria-label={`Get a Quote`} role="link">
-            Get A Quote
+            Get a Quote
           </Button>
         </Link>
+
+        <a href={SURVEY_LINK} target="_blank" className="nav-btn">
+          <Button aria-label={`Get a Quote`} role="link">
+            Leave Review
+          </Button>
+        </a>
       </span>
 
       <span className={"hamList"}>
@@ -72,9 +78,15 @@ export const Links = () => {
         <div className="btnWrap">
           <Link href={PAGE_ROUTE.FREE_QUOTE} className="quote">
             <Button aria-label={`Book your cleaning`} role="link">
-              Book Your Cleaning
+              Book Your<br/>Cleaning
             </Button>
           </Link>
+
+          <a href={SURVEY_LINK} target="_blank" className="nav-btn">
+          <Button aria-label={`Get a Quote`} role="link">
+            Leave<br/>Review
+          </Button>
+        </a>
         </div>
       </span>
 
