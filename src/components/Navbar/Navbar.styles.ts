@@ -19,9 +19,9 @@ export const TopNavContainer = styled.nav`
     padding: 0.5rem 0rem;
     background-color: ${({ theme }) => theme.colors.primary};
 
-    @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
+    /* @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
       display: none;
-    }
+    } */
 
     a {
       align-self: flex-end;
@@ -249,9 +249,9 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     }
 
     @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
-      top: calc(76px);
+      top: calc(76px + 36px);
       height: ${({ $mobileNavOpen }) =>
-        $mobileNavOpen ? "calc(100svh - 76px)" : "0px"};
+        $mobileNavOpen ? "calc(100svh - 76px - 36px)" : "0px"};
     }
 
     @media screen and (min-width: 820px) {
