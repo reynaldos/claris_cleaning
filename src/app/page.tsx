@@ -13,6 +13,7 @@ import ServiceArea from "@/sections/serviceArea";
 import GreenCleaning from "@/sections/greenCleaning";
 import HomeIntro from "@/sections/homeIntro";
 import Testimonials from "@/sections/testimonials";
+import TrustedBy from "@/sections/trustedBy";
 // import TrustedBrandsSection from "@/sections/trustedBrands";
 
 export default function Home() {
@@ -52,6 +53,8 @@ export default function Home() {
       <Testimonials />
 
       <GreenCleaning />
+
+      <TrustedBy />
 
       {/* <TrustedBrandsSection /> */}
     </>

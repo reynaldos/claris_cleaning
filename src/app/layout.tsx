@@ -10,7 +10,12 @@ import { GOOGLE_ANALYTICS, SITE_URL } from "@/constants/info";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-const openSans = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  weight: ['400', '700'],
+  style: ['normal',],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -83,7 +88,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={openSans.className}>
+      <body className={inter.className}>
         <ClientProviders>
           <Navbar />
 
