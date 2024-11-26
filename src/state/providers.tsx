@@ -18,7 +18,7 @@ export default function ClientProviders({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    LogRocket.init("yeuyxw/claris-cleaning");
+    LogRocket.init("rey-dev-services/claris-cleaning");
 
     emailjs.init({
       publicKey: publicKey,
