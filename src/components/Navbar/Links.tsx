@@ -1,5 +1,5 @@
 'use client'
- 
+
 import React, { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 import Link from 'next/link'
@@ -10,6 +10,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import navRoutes from "./routes";
 import Button from "../Buttons";
 import { PAGE_ROUTE, SURVEY_LINK } from "@/constants/info";
+import CartIcon from "../Cart/CartIcon";
 
 import {
   unlock as enableBodyScroll,
@@ -59,6 +60,8 @@ export const Links = () => {
             Leave Review
           </Button>
         </a>
+
+        <CartIcon />
       </span>
 
       <span className={"hamList"}>
@@ -90,19 +93,22 @@ export const Links = () => {
         </div>
       </span>
 
-      <button
-        aria-label={`Open Navigation Menu`}
-        role="link"
-        className="hamburger"
-        onClick={() => {
-          !openNav ? disableBodyScroll() : enableBodyScroll();
+      <div className="mobileActions">
+        <CartIcon />
+        <button
+          aria-label={`Open Navigation Menu`}
+          role="link"
+          className="hamburger"
+          onClick={() => {
+            !openNav ? disableBodyScroll() : enableBodyScroll();
 
-          setOpenNav((old) => !old);
-        }}
-      >
-        {openNav ? <RxCross1 size={32} /> : <RxHamburgerMenu size={32} />}
-      </button>
+            setOpenNav((old) => !old);
+          }}
+        >
+          {openNav ? <RxCross1 size={32} /> : <RxHamburgerMenu size={32} />}
+        </button>
+      </div>
     </LinkWrapper>
   );
-  
+
 }

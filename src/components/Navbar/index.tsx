@@ -19,6 +19,7 @@ import {
 } from "@/constants/info";
 import { formatPhoneNumber } from "@/utils/sting";
 import Button from "../Buttons";
+import CartSidebar from "../Cart";
 
 const Navbar = () => {
   return (
@@ -95,6 +96,9 @@ const Navbar = () => {
           </a>
         </button>
       </BottomNavContainer>
+
+      {/* Cart Sidebar */}
+      <CartSidebar />
     </>
   );
 };

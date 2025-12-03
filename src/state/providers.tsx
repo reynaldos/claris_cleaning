@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 import LogRocket from "logrocket";
+import { CartProvider } from "@/context/CartContext";
 
 const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
@@ -35,7 +36,9 @@ export default function ClientProviders({
 
   return (
     <StyledComponentsRegistry>
-      <ThemeProvider theme={globalTheme}>{children}</ThemeProvider>
+      <ThemeProvider theme={globalTheme}>
+        <CartProvider>{children}</CartProvider>
+      </ThemeProvider>
     </StyledComponentsRegistry>
   );
 }

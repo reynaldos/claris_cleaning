@@ -92,13 +92,23 @@ export const TopNavContainer = styled.nav`
 export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
   display: flex;
 
+  .mobileActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @media screen and (min-width: 1080px) {
+      display: none;
+    }
+  }
+
   .hamburger {
     cursor: pointer;
     border: none;
     background-color: transparent;
     color: ${({ theme }) => theme.colors.primary};
 
-    @media screen and (min-width: 820px) {
+    @media screen and (min-width: 1080px) {
       display: none;
     }
   }
@@ -134,8 +144,9 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     align-items: center;
     height: 76px;
     top: -36px;
+    gap: 8px;
 
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 1080px) {
       display: none;
     }
 
@@ -254,7 +265,7 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
         $mobileNavOpen ? "calc(100svh - 76px - 36px)" : "0px"};
     }
 
-    @media screen and (min-width: 820px) {
+    @media screen and (min-width: 1080px) {
       display: none;
     }
   }

@@ -24,4 +24,5 @@ export const enum PAGE_ROUTE {
   SERVICES = "/services",
   CONTACT = "/contact",
   FREE_QUOTE = "/free-quote",
+  SHOP = "/shop",
 }
