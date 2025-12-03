@@ -37,14 +37,24 @@ const CartSidebar = () => {
         body: JSON.stringify({ items: cart.items }),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
 
-      if (data.url) {
-        window.location.href = data.url;
+      if (!data.url) {
+        throw new Error('No checkout URL received from server');
       }
+
+      window.location.href = data.url;
     } catch (error) {
       console.error('Checkout error:', error);
-      alert('There was an error processing your checkout. Please try again.');
+      const errorMessage = error instanceof Error
+        ? error.message
+        : 'There was an error processing your checkout. Please try again.';
+      alert(errorMessage);
     }
   };
 
