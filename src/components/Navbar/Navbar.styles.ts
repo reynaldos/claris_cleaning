@@ -177,19 +177,19 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
 
     transition: height 300ms ease-in-out, opacity 200ms ease-in-out;
     background: ${({ theme }) => theme.colors.white};
-    position: absolute;
+    position: fixed;
     top: calc(36px + 76px);
     width: 100vw;
     right: 0;
     z-index: 24px;
-    overflow-y: hidden;
+    overflow-y: auto;
 
     margin: 0;
     padding: 0;
 
     opacity: ${({ $mobileNavOpen }) => ($mobileNavOpen ? "1" : "0")};
     height: ${({ $mobileNavOpen }) =>
-      $mobileNavOpen ? "calc(100svh - 36px - 76px)" : "0px"};
+      $mobileNavOpen ? "calc(100vh - 36px - 76px)" : "0px"};
 
     a {
       all: unset;
@@ -262,7 +262,7 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
       top: calc(76px + 36px);
       height: ${({ $mobileNavOpen }) =>
-        $mobileNavOpen ? "calc(100svh - 76px - 36px)" : "0px"};
+        $mobileNavOpen ? "calc(100vh - 76px - 36px)" : "0px"};
     }
 
     @media screen and (min-width: 1080px) {
