@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+
+enum FormType {
+  CONTACT
+  QUOTE
+  UNKNOWN
+}
+
+enum SubmissionStatus {
+  SUCCESS
+  ERROR
+}
+
+model Submission {
+  id           String           @id @default(cuid())
+  emailjsId    String?          @unique
+  formType     FormType
+  status       SubmissionStatus
+  email        String?
+  data         Json
+  errorMessage String?
+  ipAddress    String?
+  userAgent    String?
+  source       String?
+  createdAt    DateTime         @default(now())
+
+  @@index([formType, createdAt])
+  @@index([status])
+  @@index([email])
+}
