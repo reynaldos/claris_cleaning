@@ -9,6 +9,7 @@ import TextArea from "../../Inputs/TextArea";
 
 import { useForm, useWatch, Controller } from "react-hook-form";
 import { formatPhoneNumber } from "@/utils/sting";
+import { logSubmission } from "@/utils/logSubmission";
 import emailjs from "@emailjs/browser";
 import FormLoader, { EmailStateEnum } from "@/components/FormLoader";
 
@@ -35,27 +36,31 @@ const ContactForm = () => {
   const [emailState, setEmailState] = useState(EmailStateEnum.IDLE);
 
   const handleFormSubmit = async (data: any) => {
-    console.table({
+    const payload = {
       ...data,
       phoneNumber: formatPhoneNumber(data.phoneNumber),
-    });
+    };
+    console.table(payload);
 
     setEmailState(EmailStateEnum.LOADING);
     try {
-      const result = await emailjs.send(serviceID, templateID, {
-        ...data,
-        phoneNumber: formatPhoneNumber(data.phoneNumber),
-      });
+      const result = await emailjs.send(serviceID, templateID, payload);
       console.log(result.text);
       setEmailState(EmailStateEnum.SENT);
 
+      logSubmission({ formType: "CONTACT", status: "SUCCESS", data: payload });
       reset();
     } catch (error: any) {
       setEmailState(EmailStateEnum.ERROR);
       console.log(error.text);
+
+      logSubmission({
+        formType: "CONTACT",
+        status: "ERROR",
+        data: payload,
+        errorMessage: error?.text,
+      });
     }
-
-
   };
 
   return (

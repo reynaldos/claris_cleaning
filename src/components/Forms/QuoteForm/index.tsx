@@ -21,6 +21,7 @@ import RadioInput from "@/components/Inputs/RadioInput";
 
 import { useForm, Controller } from "react-hook-form";
 import { formatPhoneNumber } from "@/utils/sting";
+import { logSubmission } from "@/utils/logSubmission";
 
 import emailjs from "@emailjs/browser";
 import FormLoader, { EmailStateEnum } from "@/components/FormLoader";
@@ -98,36 +99,36 @@ const QuoteForm = () => {
   };
 
   const handleFormSubmit = async () => {
-    console.table(quoteField);
-    console.table({
+    const payload = {
+      ...quoteField,
+      services: quoteField.services.toString().replace(/\n/g, ""),
       firstName,
       lastName,
       email,
       phone: formatPhoneNumber(phone),
       zipcode,
-    });
+    };
+    console.table(payload);
 
     setEmailState(EmailStateEnum.LOADING);
     try {
-      const result = await emailjs.send(serviceID, quoteTemplateID, {
-        ...quoteField,
-        services: quoteField.services.toString().replace(/\n/g, ""),
-        ...{
-          firstName,
-          lastName,
-          email,
-          phone: formatPhoneNumber(phone),
-          zipcode,
-        },
-      });
+      const result = await emailjs.send(serviceID, quoteTemplateID, payload);
       console.log(result.text);
       setEmailState(EmailStateEnum.SENT);
 
+      logSubmission({ formType: "QUOTE", status: "SUCCESS", data: payload });
       reset();
       setQuoteFields(defaultQuoteState);
     } catch (error: any) {
       setEmailState(EmailStateEnum.ERROR);
       console.log(error.text);
+
+      logSubmission({
+        formType: "QUOTE",
+        status: "ERROR",
+        data: payload,
+        errorMessage: error?.text,
+      });
     }
   };
 
