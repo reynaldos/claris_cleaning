@@ -55,30 +55,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: SITE_URL,
   },
-  // ICONS
-  icons: {
-    icon: "",
-    shortcut: ["/logo/ccc_logo_180x180.webp"],
-    apple: [
-      { url: "/logo/ccc_logo_32x32.webp" },
-      {
-        url: "/logo/ccc_logo_180x180.webp",
-        sizes: "180x180",
-        type: "image/webp",
-      },
-    ],
-    other: {
-      rel: "/logo/ccc_logo_16x16.webp",
-      url: "/logo/ccc_logo_16x16.webp",
-    },
-  },
+  // ICONS are generated automatically by Next.js from the file conventions
+  // in src/app: favicon.ico (real multi-size ICO), icon.png, apple-icon.png.
   appleWebApp: {
     title: "ClarisCleaningCrew",
     statusBarStyle: "black-translucent",
   },
 };
-
-<link rel="icon" href="/favicon.ico" sizes="any" />;
 
 
 export default function RootLayout({
