@@ -78,7 +78,7 @@ const ContrastToggle = styled.button`
   position: fixed;
   right: 16px;
   bottom: 16px;
-  z-index: 30;
+  z-index: 100000;
   width: 48px;
   height: 48px;
   border-radius: 100%;
