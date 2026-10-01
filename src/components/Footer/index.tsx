@@ -1,13 +1,10 @@
 import React from "react";
 import { FooterConainer, FooterWrap } from "./Footer.styles";
-import routes from "@/components/Navbar/routes";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/assets/ccc_logo.webp";
-import Melaleuca from "@/assets/melaleuca_logo.webp";
 
 import {
-  FaClock,
   FaFacebook,
   FaInstagram,
   FaLocationDot,
@@ -41,18 +38,20 @@ const Footer = () => {
           </div>
           <div>
             <a
-              aria-label="Claris Cleaning Facebook"
+              aria-label="Clari's Cleaning Facebook"
               href={FACEBOOK_LINK}
               target="_blank"
+              rel="noopener noreferrer"
             >
-              <FaFacebook size={40} />
+              <FaFacebook size={40} aria-hidden="true" />
             </a>
             <a
-              aria-label="Claris Cleaning Instagram"
+              aria-label="Clari's Cleaning Instagram"
               href={INSTAGRAM_LINK}
               target="_blank"
+              rel="noopener noreferrer"
             >
-              <FaInstagram size={40} />
+              <FaInstagram size={40} aria-hidden="true" />
             </a>
           </div>
         </section>
@@ -67,48 +66,33 @@ const Footer = () => {
             ))}
           </div>
           <div>
-            <a href={SURVEY_LINK} target="_blank">
-              <Button role="link" aria-label="Leave A Review">
-                Leave A Review
-              </Button>
-            </a>
-            <Link href={PAGE_ROUTE.FREE_QUOTE}>
-              <Button role="link" aria-label="Get a free quote">
-                Get A Free Quote
-              </Button>
-            </Link>
-            <a href={`tel:${BUSINESS_PHONE}`}>
-              <Button role="link" aria-label="Call Claris Cleaning">
-                <FaPhone size={18} />
-                Call Us Now
-              </Button>
-            </a>
+            <Button href={SURVEY_LINK} target="_blank">
+              Leave A Review
+            </Button>
+            <Button href={PAGE_ROUTE.FREE_QUOTE}>Get A Free Quote</Button>
+            <Button href={`tel:${BUSINESS_PHONE}`}>
+              <FaPhone size={18} aria-hidden="true" />
+              Call Us Now
+            </Button>
           </div>
         </section>
 
         {/* about */}
         <section className="infoStrip">
-          <a
-            aria-label="Claris Cleaning Phone NUmber"
-            href={`tel:${BUSINESS_PHONE}`}
-          >
-            <FaPhone size={18} />
+          <a href={`tel:${BUSINESS_PHONE}`}>
+            <FaPhone size={18} aria-hidden="true" />
             {formatPhoneNumber(BUSINESS_PHONE)}
           </a>
 
           <a
-            aria-label="Claris Cleaning Email"
             href={`mailto:${BUSINESS_EMAIL}?subject = Cleaning Service Questions`}
           >
-            <IoIosMail size={24} />
+            <IoIosMail size={24} aria-hidden="true" />
             {BUSINESS_EMAIL}
           </a>
 
-          <a
-            aria-label="Claris Cleaning Location"
-            href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}
-          >
-            <FaLocationDot size={20} />
+          <a href={`${GOOGLE_MAPS_LINK}${BUSINESS_ADDRESS}`}>
+            <FaLocationDot size={20} aria-hidden="true" />
             {BUSINESS_ADDRESS}
           </a>
           {/* 
@@ -120,11 +104,7 @@ const Footer = () => {
       </FooterWrap>
 
       <span>
-        <a
-          aria-label="Website designer and builder portfolio"
-          href={DEV_LINK}
-          target="_blank"
-        >
+        <a href={DEV_LINK} target="_blank" rel="noopener noreferrer">
           Designed & Built By Rey Sanchez
         </a>
         <p>

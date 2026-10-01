@@ -42,11 +42,18 @@ export const FooterConainer = styled.footer`
     opacity: 80%;
   }
 
-  a:hover {
+  & > span a:hover {
     color: ${({ theme }) => theme.colors.secondary};
     filter: brightness(85%);
     -webkit-filter: brightness(85%);
-    cursor: pointer;
+  }
+
+  [data-contrast] & > span a:hover,
+  [data-contrast] & .routes div:first-child a:hover {
+    color: inherit;
+    filter: none;
+    -webkit-filter: none;
+    text-decoration: underline;
   }
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.xs}) {
@@ -177,7 +184,7 @@ export const FooterWrap = styled.div`
     }
 
     div:first-child a,
-    div:last-child button {
+    div:last-child a {
       font-size: 20px;
       font-weight: 700;
     }
@@ -194,7 +201,7 @@ export const FooterWrap = styled.div`
 
     @media screen and (max-width: ${({ theme }) => theme.bpts.lg}) {
       div:first-child a,
-      div:last-child button {
+      div:last-child a {
         font-size: 16px;
         font-weight: 600;
       }
@@ -213,7 +220,7 @@ export const FooterWrap = styled.div`
         flex-direction: column;
       }
 
-      div:last-child button {
+      div:last-child a {
         width: 174px;
       }
     }

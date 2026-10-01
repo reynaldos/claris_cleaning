@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { SwiperSlideStyled, SwiperStyled, BtnWrap } from "./styles";
-import { Autoplay, Mousewheel, Navigation } from "swiper/modules";
+import { A11y, Autoplay, Mousewheel, Navigation } from "swiper/modules";
 import QuotesIcon from "@/assets/icons/quotes";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
@@ -14,6 +13,9 @@ interface QuoteType {
 }
 
 const QuoteSwiper = () => {
+  const reduceMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const QuoteList: QuoteType[] = [
     {
@@ -76,15 +78,15 @@ const QuoteSwiper = () => {
     <>
       {QuoteList?.length > 0 && (
         <SwiperStyled
-          modules={[Navigation, Mousewheel, Autoplay]}
+          modules={[Navigation, Mousewheel, Autoplay, A11y]}
           navigation={{
             prevEl: ".prev",
             nextEl: ".next",
           }}
           loop={true}
-          autoplay={{
-            delay: 20000,
-          }}
+          watchSlidesProgress={true}
+          speed={reduceMotion ? 0 : 300}
+          autoplay={reduceMotion ? false : { delay: 20000, pauseOnMouseEnter: true }}
           slidesPerView={1}
           spaceBetween={"20px"}
           lazyPreloadPrevNext={1}
@@ -104,21 +106,21 @@ const QuoteSwiper = () => {
               <QuotesIcon />
 
               <div className="contentWrap">
-                <p>{quote.statement}</p>
-                <h1>{quote.author}</h1>
-                <h2>{quote.title ?? `\n`}</h2>
+                <p tabIndex={0}>{quote.statement}</p>
+                <p className="author">{quote.author}</p>
+                <p className="role">{quote.title ?? `\n`}</p>
               </div>
             </SwiperSlideStyled>
           ))}
         </SwiperStyled>
       )}
       <BtnWrap>
-        <button aria-label={`Show previous quote`} className="prev">
-          <FaChevronLeft />
+        <button type="button" aria-label="Show previous quote" className="prev">
+          <FaChevronLeft aria-hidden="true" />
         </button>
 
-        <button aria-label={`Show next quote`} className="next">
-          <FaChevronRight />
+        <button type="button" aria-label="Show next quote" className="next">
+          <FaChevronRight aria-hidden="true" />
         </button>
       </BtnWrap>
     </>

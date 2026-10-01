@@ -62,7 +62,7 @@ flex: 1;
 
     min-height: 50px;
 
-    a:last-child button {
+    a:last-child {
       border: 2px solid ${({ theme }) => theme.colors.white};
       background-color: transparent;
     }

@@ -17,7 +17,10 @@ export const VideoWrapper = styled.div`
     width: 100%;
   }
 
-  span {
+  .playBtn {
+    border: none;
+    background: transparent;
+    padding: 0;
     height: 100%;
     width: 100%;
 

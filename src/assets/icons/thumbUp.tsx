@@ -3,6 +3,7 @@ import React from 'react'
 const ThumbUpIcon = () => {
   return (
     <svg
+      aria-hidden="true"
       width="24"
       height="25"
       viewBox="0 0 24 25"

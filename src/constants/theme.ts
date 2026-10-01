@@ -47,3 +47,18 @@ export const globalTheme = {
 
   // textColor
 };
+
+// WCAG AA palette (4.5:1 with white text), applied by the floating accessibility toggle
+const a11yBlue = "#007CB3";
+const a11yGreen = "#4b7b00";
+const a11yGreen900 = "#3f6800";
+
+export const highContrastTheme = {
+  ...globalTheme,
+  colors: {
+    ...globalTheme.colors,
+    primary: a11yBlue,
+    secondary: a11yGreen,
+    secondaryHover: a11yGreen900,
+  },
+};

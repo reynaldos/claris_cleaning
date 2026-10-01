@@ -46,7 +46,7 @@ const FormLoader = ({
       ) : (
         <Label>
           {
-            <h2>
+            <p>
               {emailState === EmailStateEnum.ERROR ? (
                 <>Error, try again.</>
               ) : label ? (
@@ -58,7 +58,7 @@ const FormLoader = ({
                   we will contact you shortly!
                 </>
               )}
-            </h2>
+            </p>
           }
         </Label>
       )}

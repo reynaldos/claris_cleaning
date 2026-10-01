@@ -18,6 +18,7 @@ const GreenCleaning = () => {
       image={{
         type: "img",
         src: CleanProducts,
+        alt: "Melaleuca eco-friendly cleaning products",
       }}
       primaryButton={{
         label: "View Products",

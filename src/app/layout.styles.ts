@@ -2,7 +2,7 @@
 
 import styled from "styled-components"
 
-export const BodyWrap = styled.div`
+export const BodyWrap = styled.main`
   margin: 0 auto;
   width: 100%;
 

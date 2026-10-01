@@ -16,6 +16,7 @@ const OurTeam = () => {
       image={{
         type: "img",
         src: TeamImg,
+        alt: "The Clari's Cleaning Crew team",
       }}
       primaryButton={{
         label: "View Our Services",

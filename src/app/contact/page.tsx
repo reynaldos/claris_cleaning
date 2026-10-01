@@ -1,3 +1,7 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Contact Us" };
+
 import { BUSINESS_PHONE, PAGE_ROUTE } from "@/constants/info";
 import HeroSection from "@/components/HeroSection";
 import { FaPhone } from "react-icons/fa6";

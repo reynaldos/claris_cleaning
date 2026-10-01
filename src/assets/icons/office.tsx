@@ -3,6 +3,7 @@ import React from 'react'
 const OfficeIcon = ({ color = '#0095D5' }) => {
   return (
     <svg
+      aria-hidden="true"
       width="61"
       height="61"
       viewBox="0 0 61 61"

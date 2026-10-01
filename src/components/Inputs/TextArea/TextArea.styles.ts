@@ -24,10 +24,6 @@ export const InputContainer = styled.div`
     border: none;
     resize: none;
     font-family: unset;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   label {

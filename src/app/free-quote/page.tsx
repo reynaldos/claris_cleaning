@@ -1,3 +1,7 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Free Quote" };
+
 
 import HeroSection from '@/components/HeroSection';
 import SectionComponent from '@/components/Section';

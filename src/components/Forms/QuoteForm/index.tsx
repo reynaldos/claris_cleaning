@@ -158,8 +158,8 @@ const QuoteForm = () => {
   const formIntro = () => (
     <>
       {/* -- AREA INFO -- */}
-      <section className="formSection">
-        <label>Tell Us About Your Area</label>
+      <fieldset className="formSection">
+        <legend>Tell Us About Your Area</legend>
         <span>
           <DropDownInput
             options={EnumToArray(RoomCount)}
@@ -193,38 +193,37 @@ const QuoteForm = () => {
             label={"Square Footage"}
           />
         </span>
-      </section>
+      </fieldset>
 
       {/* -- SERVICES -- */}
-      <section className="formSection">
-        <label>Needed Services</label>
+      <fieldset className="formSection">
+        <legend>Needed Services</legend>
         <span className="services">
           {quoteServices.map((service, index) => (
             <button
-              aria-label={`Service-${service.label}`}
+              type="button"
               key={index}
+              aria-pressed={quoteField.services.includes(service.label)}
               className={`serviceButton ${
                 quoteField.services.includes(service.label) ? "active" : ""
               }`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleServices(service.label);
-              }}
+              onClick={() => handleServices(service.label)}
             >
               {service.icon}
               <p>{service.label}</p>
             </button>
           ))}
         </span>
-      </section>
+      </fieldset>
 
       {/* -- CLEAN FREQUENCY -- */}
-      <section className="formSection">
-        <label>How Often Should We Come?</label>
+      <fieldset className="formSection">
+        <legend>How Often Should We Come?</legend>
         <span className="radio">
           {EnumToArray(VistFrequency).map((value, index) => (
             <RadioInput
               key={index}
+              name="visitFrequency"
               label={value}
               checked={quoteField.visitFrequency === value}
               onSelect={() => {
@@ -233,16 +232,14 @@ const QuoteForm = () => {
             />
           ))}
         </span>
-      </section>
+      </fieldset>
 
       {/* -- BUTTONS -- */}
       <span className="buttonWrap">
         <Button
-          aria-label="Next Quote Page"
+          type="button"
           disabled={isNextDisabled()}
-          onClick={(e) => {
-            e.preventDefault();
-
+          onClick={() => {
             window.scrollTo({
               top: 0,
               behavior: "smooth",
@@ -260,8 +257,8 @@ const QuoteForm = () => {
   const formFinal = () => (
     <>
       {/* -- CONTACT -- */}
-      <section className="formSection">
-        <label>Contact Information</label>
+      <fieldset className="formSection">
+        <legend>Contact Information</legend>
         <span>
           <Controller
             render={({ field: { onChange, onBlur, value } }) => (
@@ -377,11 +374,11 @@ const QuoteForm = () => {
             rules={{ required: true, minLength: 5, maxLength: 5 }}
           />
         </span>
-      </section>
+      </fieldset>
 
       {/* -- REFFERER -- */}
-      <section className="formSection">
-        <label>How Did You Hear About Us? *</label>
+      <fieldset className="formSection">
+        <legend>How Did You Hear About Us? *</legend>
         <span>
           <DropDownInput
             options={EnumToArray(HearAboutUs)}
@@ -392,11 +389,11 @@ const QuoteForm = () => {
             label={"Source"}
           />
         </span>
-      </section>
+      </fieldset>
 
       {/* -- CALL OR TEXT -- */}
-      <section className="formSection">
-        <label>Permission to Call or Text? *</label>
+      <fieldset className="formSection">
+        <legend>Permission to Call or Text? *</legend>
         <span
           style={{
             justifyContent: "flex-start",
@@ -405,6 +402,7 @@ const QuoteForm = () => {
           {EnumToArray(ContactPermission).map((value, index) => (
             <RadioInput
               key={index}
+              name="canContact"
               label={value}
               checked={quoteField.canContact === value}
               onSelect={() => {
@@ -413,11 +411,11 @@ const QuoteForm = () => {
             />
           ))}
         </span>
-      </section>
+      </fieldset>
 
       {/* -- HOW SOON -- */}
-      <section className="formSection">
-        <label>How Soon Would You Like a Cleaning? *</label>
+      <fieldset className="formSection">
+        <legend>How Soon Would You Like a Cleaning? *</legend>
         <span>
           <DropDownInput
             options={EnumToArray(HowSoon)}
@@ -428,11 +426,11 @@ const QuoteForm = () => {
             label={"Time Frame"}
           />
         </span>
-      </section>
+      </fieldset>
 
       {/* -- NOTES -- */}
-      <section className="formSection">
-        <label>Notes</label>
+      <fieldset className="formSection">
+        <legend>Notes</legend>
         <span>
           <TextArea
             height="162px"
@@ -443,12 +441,12 @@ const QuoteForm = () => {
             }}
           />
         </span>
-      </section>
+      </fieldset>
 
       {/* -- BUTTONS -- */}
       <span className="buttonWrap">
         <Button
-          aria-label="Back Quote Page"
+          type="button"
           onClick={() => {
             window.scrollTo({
               top: 0,
@@ -460,7 +458,6 @@ const QuoteForm = () => {
           Previous
         </Button>
         <Button
-          aria-label="Submit Quote form"
           type="submit"
           disabled={isSubmitDisabled()}
         >
@@ -475,14 +472,17 @@ const QuoteForm = () => {
       <FormWrapper onSubmit={handleSubmit(handleFormSubmit)}>
         {formPart === 1 ? formIntro() : formFinal()}
       </FormWrapper>
-      {emailState !== EmailStateEnum.IDLE && (
-        <LoadWrapper>
-          <FormLoader
-            label={`Thank you for using our quote tool,\nwe will be sending you quote shortly!`}
-            email={{ emailState, setEmailState }}
-          />
-        </LoadWrapper>
-      )}
+      {/* always-present live region so the result gets announced */}
+      <div role="status" aria-live="polite" style={{ position: "absolute" }}>
+        {emailState !== EmailStateEnum.IDLE && (
+          <LoadWrapper>
+            <FormLoader
+              label={`Thank you for using our quote tool,\nwe will be sending you quote shortly!`}
+              email={{ emailState, setEmailState }}
+            />
+          </LoadWrapper>
+        )}
+      </div>
     </>
   );
 };

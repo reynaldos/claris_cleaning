@@ -23,10 +23,6 @@ export const InputContainer = styled.div`
     border-radius: 12px;
     background-color: transparent;
     border: none;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   label {

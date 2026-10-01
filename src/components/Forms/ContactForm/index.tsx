@@ -91,7 +91,7 @@ const ContactForm = () => {
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
               label="Phone Number (optional)"
-              type="phone"
+              type="tel"
               onChange={onChange}
               onBlur={onBlur}
               value={formatPhoneNumber(value)}
@@ -164,7 +164,6 @@ const ContactForm = () => {
         />
       </span>
       <Button
-        aria-label="Submit form"
         style={{ width: "fit-content" }}
         type="submit"
         // onClick={handleFormSubmit}
@@ -172,9 +171,20 @@ const ContactForm = () => {
         Send Message
       </Button>
 
-      {emailState !== EmailStateEnum.IDLE && (
-        <FormLoader email={{ emailState, setEmailState }} />
-      )}
+      {/* always-present live region so the result gets announced */}
+      <div
+        role="status"
+        aria-live="polite"
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: emailState === EmailStateEnum.IDLE ? "none" : "auto",
+        }}
+      >
+        {emailState !== EmailStateEnum.IDLE && (
+          <FormLoader email={{ emailState, setEmailState }} />
+        )}
+      </div>
     </FormWrap>
   );
 };

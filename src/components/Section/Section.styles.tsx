@@ -106,19 +106,16 @@ export const ButtonWrap = styled.span`
   gap: 12px;
   margin-top: 10px;
 
-  a button {
+  a {
     font-size: 16px;
   }
 
-  a:first-child button {
+  a:first-child {
     background-color: ${({ theme }) => theme.colors.primary};
   }
 
-  a:first-child button:hover {
+  a:first-child:hover {
     background-color: ${({ theme }) => theme.colors.primaryHover};
-  }
-
-  a:last-child button {
   }
 `;
 

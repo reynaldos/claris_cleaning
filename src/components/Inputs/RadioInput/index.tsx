@@ -6,18 +6,19 @@ import { RadioWrap } from './radioInput.styles';
 
 
 interface RadioInputProps{
-  label: string | any;
+  label: string;
+  name: string;
   checked: boolean;
   onSelect: ()=>void;
   width?: string;
 }
 
-const RadioInput = ({ width, onSelect, checked, label }: RadioInputProps) => {
+const RadioInput = ({ width, name, onSelect, checked, label }: RadioInputProps) => {
   return (
-    <RadioWrap style={{ width: width ?? 'fit-content'}} onClick={onSelect}>
-      {checked ? <IoMdRadioButtonOn /> : <IoMdRadioButtonOff />}
-
-      <label>{label}</label>
+    <RadioWrap style={{ width: width ?? 'fit-content'}}>
+      <input type="radio" name={name} value={label} checked={checked} onChange={onSelect} />
+      {checked ? <IoMdRadioButtonOn aria-hidden="true" /> : <IoMdRadioButtonOff aria-hidden="true" />}
+      {label}
     </RadioWrap>
   );
 };

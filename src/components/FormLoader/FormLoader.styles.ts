@@ -64,9 +64,10 @@ export const Label = styled.div`
     transform: scale(1.05);
   }
 
-  h2 {
+  p {
     margin: auto;
     font-size: 20px;
+    font-weight: 700;
     line-height: 24px;
     text-align: center;
     color: ${({ theme }) => theme.colors.white};

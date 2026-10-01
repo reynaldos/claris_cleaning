@@ -10,7 +10,6 @@ import {
   SoloSectionWrap,
 } from "./Section.styles";
 import Image from "next/image";
-import Link from "next/link";
 import Button from "../Buttons";
 
 export interface SectionButton {
@@ -27,7 +26,7 @@ interface SectionType
   content?: string | undefined;
   maxImageWidth?: string | undefined;
   image?:
-    | { type: "img"; src: StaticImport }
+    | { type: "img"; src: StaticImport; alt?: string }
     | { type: "component"; src: ReactElement }
     | undefined;
   reverse?: boolean; // reverses order of child divs
@@ -59,7 +58,7 @@ const SectionComponent = ({
             <div>
               {image.type === "img" ? (
                 // regular image
-                <Image src={image.src} alt={"section image"} />
+                <Image src={image.src} alt={image.alt ?? ""} />
               ) : (
                 // custom component in place of image
                 <>{image.src}</>
@@ -73,40 +72,18 @@ const SectionComponent = ({
             {children}
 
             <ButtonWrap>
-              {/* left button */}
-              {primaryButton &&
-                (primaryButton.linkType === "external" ? (
-                  // links to external page
-                  <a href={primaryButton.href} target="_blank">
-                    <Button aria-label={primaryButton.label} role="link">
-                      {primaryButton.label}
+              {[primaryButton, secondaryButton].map(
+                (btn) =>
+                  btn && (
+                    <Button
+                      key={btn.href}
+                      href={btn.href}
+                      target={btn.linkType === "external" ? "_blank" : undefined}
+                    >
+                      {btn.label}
                     </Button>
-                  </a>
-                ) : (
-                  // links to internal page
-                  <Link href={primaryButton.href}>
-                    <Button aria-label={primaryButton.label} role="link">
-                      {primaryButton.label}
-                    </Button>
-                  </Link>
-                ))}
-              {/* right button */}
-              {secondaryButton &&
-                (secondaryButton.linkType === "external" ? (
-                  // links to external page
-                  <a href={secondaryButton.href} target="_blank">
-                    <Button aria-label={secondaryButton.label} role="link">
-                      {secondaryButton.label}
-                    </Button>
-                  </a>
-                ) : (
-                  // links to internal page
-                  <Link href={secondaryButton.href}>
-                    <Button aria-label={secondaryButton.label} role="link">
-                      {secondaryButton.label}
-                    </Button>
-                  </Link>
-                ))}
+                  )
+              )}
             </ButtonWrap>
           </div>
         </SectionWrapper>
