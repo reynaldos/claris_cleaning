@@ -2,7 +2,6 @@
 
 import Button from "@/components/Buttons";
 import { PAGE_ROUTE } from "@/constants/info";
-import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
@@ -13,14 +12,12 @@ const ErrorPage = () => {
   return (
     <Errorbox>
       <span>
-        <Image src={errorImage} alt="404" />
+        <Image src={errorImage} alt="" />
       </span>
 
       <span>
         <h1>Page Not Found!</h1>
-        <Link href={PAGE_ROUTE.HOME}>
-          <Button aria-label="Back Home">Go Back Home</Button>
-        </Link>
+        <Button href={PAGE_ROUTE.HOME}>Go Back Home</Button>
       </span>
     </Errorbox>
   );

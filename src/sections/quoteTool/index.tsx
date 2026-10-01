@@ -5,23 +5,22 @@ import { QuoteWrapper } from "./quoteTool.styles";
 import SectionComponent from "@/components/Section";
 import Button from "@/components/Buttons";
 import CheckBoxIcon from "@/assets/icons/checkBox";
-import Link from "next/link";
 import { PAGE_ROUTE } from "@/constants/info";
 
 const QuoteTool = () => {
   return (
     <SectionComponent sectionsType="single">
       <QuoteWrapper>
-        <h3>Want to know how much it will cost to clean your home?</h3>
+        <p className="lead">
+          Want to know how much it will cost to clean your home?
+        </p>
         <span>
-          <h1>
+          <h2>
             Use Our Free
             <br />
             Quote Tool
-          </h1>
-          <Link href={PAGE_ROUTE.FREE_QUOTE}>
-            <Button aria-label={`Get a free quote`} role="link"> Get A Quote</Button>
-          </Link>
+          </h2>
+          <Button href={PAGE_ROUTE.FREE_QUOTE}>Get A Quote</Button>
         </span>
         <span>
           <div>

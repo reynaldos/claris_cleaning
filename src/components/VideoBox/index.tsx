@@ -4,20 +4,10 @@ import React, { useRef, useState } from "react";
 import { ButtonWrap, VideoContainer, VideoWrapper } from "./videoBox.styles";
 import { RxTriangleRight } from "react-icons/rx";
 
-import AdPoster from "@/assets/adPoster.webp";
-
 const VideoBox = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlayig, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [language, setLanguage] = useState<"eng" | "esp">("eng");
-
-  const handlePlay = () => {
-    setIsPlaying(true);
-  };
-
-  const handlePause = () => {
-    setIsPlaying(false);
-  };
 
   const togglePlay = async () => {
     if (videoRef.current?.paused) {
@@ -27,46 +17,52 @@ const VideoBox = () => {
     }
   };
 
-  const toggleLanguage = () => {
-    setLanguage((old) => (old === "eng" ? "esp" : "eng"));
-  };
-
   return (
     <VideoContainer>
       <VideoWrapper>
         <video
           ref={videoRef}
           preload="auto"
-          controls={isPlayig}
-          onPlay={handlePlay}
-          onPause={handlePause}
+          controls
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
           width={"100%"}
           src={`./CCC_ad_${language}.mp4`}
           poster={"./assets/adPoster.webp"}
+          aria-label={
+            language === "eng"
+              ? "Clari's Cleaning Crew ad (English)"
+              : "Anuncio de Clari's Cleaning Crew (Español)"
+          }
         />
 
-        {!isPlayig && (
-          <span
+        {!isPlaying && (
+          <button
+            type="button"
+            className="playBtn"
+            aria-label="Play video"
             onClick={() => {
               void togglePlay();
             }}
           >
-            <RxTriangleRight />
-          </span>
+            <RxTriangleRight aria-hidden="true" />
+          </button>
         )}
       </VideoWrapper>
 
       <ButtonWrap>
         <button
-          aria-label={`Play ad in english`}
-          onClick={toggleLanguage}
+          type="button"
+          aria-pressed={language === "eng"}
+          onClick={() => setLanguage("eng")}
           className={language === "eng" ? "active" : ""}
         >
           English
         </button>
         <button
-          aria-label={`Play ad in spanish`}
-          onClick={toggleLanguage}
+          type="button"
+          aria-pressed={language === "esp"}
+          onClick={() => setLanguage("esp")}
           className={language === "esp" ? "active" : ""}
         >
           Español

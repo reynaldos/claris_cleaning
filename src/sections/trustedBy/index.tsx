@@ -16,7 +16,7 @@ const TrustedBy = () => {
 
         <Image
           src={Chamber}
-          alt={"section image"}
+          alt="Lakeland Chamber of Commerce member"
           width={"300"}
           height={"100"}
         />

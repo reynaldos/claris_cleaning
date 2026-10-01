@@ -19,7 +19,8 @@ export const QuoteWrapper = styled.div`
 
   color: ${({ theme }) => theme.colors.grey900};
 
-  h3 {
+  .lead {
+    font-size: 1.17rem;
     font-weight: 400;
     text-align: center;
   }
@@ -30,7 +31,7 @@ export const QuoteWrapper = styled.div`
     align-items: center;
     gap: 20px;
 
-    h1 {
+    h2 {
       font-size: 52px;
       line-height: 1;
       font-weight: 500;
@@ -54,11 +55,11 @@ export const QuoteWrapper = styled.div`
   }
 
   @media screen and (max-width: ${({ theme }) => theme.bpts.md}) {
-    h3 {
+    .lead {
       font-size: 16px;
     }
 
-    span h1 {
+    span h2 {
       font-size: 32px;
     }
 

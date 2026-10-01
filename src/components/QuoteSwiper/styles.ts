@@ -63,7 +63,8 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
     flex-direction: column;
     /* min-width: 580px !important; */
 
-    p {
+    /* the quote itself; author/role follow */
+    p:first-child {
       flex: 1;
       height: 65px;
       color: #fff;
@@ -108,15 +109,17 @@ export const SwiperSlideStyled = styled(SwiperSlide)`
       }
     }
 
-    h1 {
+    .author {
       font-size: 22px;
+      font-weight: 700;
       margin-top: 8px;
       text-align: center;
       color: ${({ theme }) => theme.colors.gold400};
     }
 
-    h2 {
+    .role {
       font-size: 12px;
+      font-weight: 700;
       white-space: pre-line;
       text-align: center;
       color: ${({ theme }) => theme.colors.white};

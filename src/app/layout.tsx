@@ -19,7 +19,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Clari's Cleaning Crew | Professional Cleaning Services",
+  title: {
+    default: "Clari's Cleaning Crew | Professional Cleaning Services",
+    template: "%s | Clari's Cleaning Crew",
+  },
   description:
     "Cleaning Services: Contact Clari's Cleaning Company for the best in residential, commercial, and construction cleaning services.",
   // OG
@@ -73,9 +76,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ClientProviders>
+          <a href="#main" className="skip-link">
+            Skip to main content
+          </a>
           <Navbar />
 
-          <BodyWrap className="bodyWrap">{children}</BodyWrap>
+          <BodyWrap id="main" className="bodyWrap">
+            {children}
+          </BodyWrap>
 
           <Footer />
         </ClientProviders>

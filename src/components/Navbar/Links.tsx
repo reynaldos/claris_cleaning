@@ -31,68 +31,49 @@ export const Links = () => {
   }, [desiredBp("md"), windowWidth]);
 
   useEffect(() => {setOpenNav(false);  enableBodyScroll();}, [pathname]);
-  
+
+  const routeLinks = navRoutes.map((val) => (
+    <Link
+      key={val.route}
+      href={val.route}
+      className="link"
+      data-isactive={pathname === val.route}
+      aria-current={pathname === val.route ? "page" : undefined}
+    >
+      {val.label}
+    </Link>
+  ));
   
   return (
     <LinkWrapper $mobileNavOpen={openNav}>
       <span className={"linkList"}>
-        {navRoutes.map((val, ind) => (
-          <Link key={ind} href={val.route}>
-            <button
-              aria-label={`Navigation Link`}
-              role="link"
-              className="link"
-              data-isactive={pathname === val.route}
-            >
-              {val.label}
-            </button>
-          </Link>
-        ))}
-        <Link href={PAGE_ROUTE.FREE_QUOTE} className="nav-btn">
-          <Button aria-label={`Get a Quote`} role="link">
-            Get a Quote
-          </Button>
-        </Link>
-
-        <a href={SURVEY_LINK} target="_blank" className="nav-btn">
-          <Button aria-label={`Get a Quote`} role="link">
-            Leave Review
-          </Button>
-        </a>
+        {routeLinks}
+        <Button href={PAGE_ROUTE.FREE_QUOTE} className="nav-btn">
+          Get a Quote
+        </Button>
+        <Button href={SURVEY_LINK} target="_blank" className="nav-btn">
+          Leave Review
+        </Button>
       </span>
 
-      <span className={"hamList"}>
-        {navRoutes.map((val, ind) => (
-          <Link key={ind} href={val.route}>
-            <button
-              aria-label={`Navigation Link`}
-              role="link"
-              className="link"
-              data-isactive={pathname === val.route}
-            >
-              {val.label}
-            </button>
-          </Link>
-        ))}
+      <span className={"hamList"} id="mobile-nav">
+        {routeLinks}
 
         <div className="btnWrap">
-          <Link href={PAGE_ROUTE.FREE_QUOTE} className="quote">
-            <Button aria-label={`Book your cleaning`} role="link">
-              Book Your<br/>Cleaning
-            </Button>
-          </Link>
-
-          <a href={SURVEY_LINK} target="_blank" className="nav-btn">
-          <Button aria-label={`Get a Quote`} role="link">
+          <Button href={PAGE_ROUTE.FREE_QUOTE}>
+            Book Your<br/>Cleaning
+          </Button>
+          <Button href={SURVEY_LINK} target="_blank">
             Leave<br/>Review
           </Button>
-        </a>
         </div>
       </span>
 
       <button
-        aria-label={`Open Navigation Menu`}
-        role="link"
+        type="button"
+        aria-label={openNav ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={openNav}
+        aria-controls="mobile-nav"
         className="hamburger"
         onClick={() => {
           !openNav ? disableBodyScroll() : enableBodyScroll();
@@ -100,7 +81,7 @@ export const Links = () => {
           setOpenNav((old) => !old);
         }}
       >
-        {openNav ? <RxCross1 size={32} /> : <RxHamburgerMenu size={32} />}
+        {openNav ? <RxCross1 size={32} aria-hidden="true" /> : <RxHamburgerMenu size={32} aria-hidden="true" />}
       </button>
     </LinkWrapper>
   );

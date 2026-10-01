@@ -20,6 +20,7 @@ const ServiceArea = () => {
       image={{
         type: "img",
         src: AreaMap,
+        alt: "Map of the Central Florida service area",
       }}
       primaryButton={{
         label: "About Us",

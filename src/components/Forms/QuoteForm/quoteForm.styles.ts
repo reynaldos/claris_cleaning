@@ -29,8 +29,15 @@ export const FormWrapper = styled.form`
     display: flex;
     flex-direction: column;
     gap: 16px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
 
-    & > label {
+    /* legend sits outside flex gap, so space it manually */
+    & > legend {
+      padding: 0;
+      margin-bottom: 16px;
       color: ${({ theme }) => theme.colors.white};
       font-size: 24px;
       font-style: normal;
@@ -96,6 +103,10 @@ export const FormWrapper = styled.form`
     border-radius: 20px;
     background: rgba(3, 179, 255, 0.75);
     border: none;
+
+    [data-contrast] & {
+      background: ${({ theme }) => theme.colors.primaryHover};
+    }
 
     color: ${({ theme }) => theme.colors.white};
 

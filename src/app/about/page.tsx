@@ -1,3 +1,7 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "About" };
+
 
 // sections
 import HeroSection from "@/components/HeroSection";

@@ -1,13 +1,33 @@
 "use client";
 
-import React  from "react";
+import React from "react";
+import Link from "next/link";
 import styled from "styled-components";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   hoverColor?: string | undefined;
+  href?: string;
+  target?: string;
 }
 
-const Button = ({ hoverColor, children, disabled, ...props }: ButtonProps) => {
+// With href it renders a real link styled as a button (no button-inside-anchor nesting)
+const Button = ({ hoverColor, children, disabled, href, target, ...props }: ButtonProps) => {
+  if (href) {
+    return (
+      <StyledBtn
+        as={Link}
+        href={href}
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
+        hoverColor={hoverColor}
+        disabled={disabled}
+        {...(props as object)}
+      >
+        {children}
+      </StyledBtn>
+    );
+  }
+
   return (
     <StyledBtn hoverColor={hoverColor} disabled={disabled} {...props}>
       {children}

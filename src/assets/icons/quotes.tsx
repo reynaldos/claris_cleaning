@@ -3,6 +3,7 @@ import React from 'react'
 const QuotesIcon = () => {
   return (
     <svg
+      aria-hidden="true"
       width="101"
       height="74"
       viewBox="0 0 101 74"

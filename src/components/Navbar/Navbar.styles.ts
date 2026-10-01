@@ -37,6 +37,11 @@ export const TopNavContainer = styled.nav`
         cursor: pointer;
         color: ${({ theme }) => theme.colors.secondary};
       }
+
+      [data-contrast] &:hover {
+        color: inherit;
+        text-decoration: underline;
+      }
     }
 
     /* .review-btn {
@@ -105,7 +110,13 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
 
   .link {
     all: unset;
+    cursor: pointer;
     font-size: 1rem;
+
+    &:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.primary};
+      outline-offset: 2px;
+    }
     font-weight: 600;
 
     margin: 0 0.5rem;
@@ -139,19 +150,19 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
       display: none;
     }
 
-    .nav-btn button{
+    .nav-btn {
       font-size: 18px;
       text-transform:unset;
       border:  2px solid ${({ theme }) => `${theme.colors.secondary}`} !important;
     }
 
-    >:last-child button {
+    >:last-child {
       background-color: transparent;
       color: ${({ theme }) => `${theme.colors.secondary}`};
       margin-left: 8px;
     }
 
-    .nav-btn button:hover{
+    .nav-btn:hover{
         color: ${({ theme }) => `${theme.colors.white}`};
         background-color:${({ theme }) => `${theme.colors.secondaryHover}`};
         border:  2px solid ${({ theme }) => `${theme.colors.secondaryHover}`} !important;
@@ -177,22 +188,15 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
     padding: 0;
 
     opacity: ${({ $mobileNavOpen }) => ($mobileNavOpen ? "1" : "0")};
+    visibility: ${({ $mobileNavOpen }) => ($mobileNavOpen ? "visible" : "hidden")};
     height: ${({ $mobileNavOpen }) =>
       $mobileNavOpen ? "calc(100svh - 36px - 76px)" : "0px"};
 
-    a {
-      all: unset;
-      flex: 1;
-      height: 100%;
-      padding: 0px;
-      margin: 0;
-
-      &:first-child .link {
-        border-top: 2px grey solid;
-      }
-    }
     .link {
       box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       flex: 1;
       font-size: 2rem;
@@ -200,6 +204,10 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
       width: 100%;
       height: 100%;
       text-align: center;
+
+      &:first-child {
+        border-top: 2px grey solid;
+      }
       border-bottom: 2px grey solid;
       padding: 0px;
       margin: 0;
@@ -225,23 +233,18 @@ export const LinkWrapper = styled.div<{ $mobileNavOpen: boolean }>`
 
       a {
         flex: 1;
-        
-      }
-      button {
-        width:100%;
         margin: 24px auto;
         font-size: 18px;
         padding: 16px 24px;
         border:  2px solid ${({ theme }) => `${theme.colors.secondary}`} !important;
       }
 
-
-      :last-child button{
+      a:last-child{
         background-color: transparent;
         color: ${({ theme }) => `${theme.colors.secondary}`};
       }
 
-      button:hover, :last-child button:hover{
+      a:hover, a:last-child:hover{
         color: ${({ theme }) => `${theme.colors.white}`};
         background-color:${({ theme }) => `${theme.colors.secondaryHover}`};
         border:  2px solid ${({ theme }) => `${theme.colors.secondaryHover}`} !important;
@@ -276,19 +279,14 @@ export const BottomNavContainer = styled.nav`
 
   filter: drop-shadow(2px 2px 5px #000000);
 
-  button {
+  a {
     background-color: transparent;
     height: 40px;
     width: 40px;
     border: none;
     margin: 1rem;
-
-    a {
-      height: 100%;
-      width: 100%;
-      display: grid;
-      place-content: center;
-    }
+    display: grid;
+    place-content: center;
 
     color: white;
     cursor: pointer;

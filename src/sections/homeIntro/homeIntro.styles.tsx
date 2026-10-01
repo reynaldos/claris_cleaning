@@ -28,13 +28,19 @@ export const ServiceWrap = styled.div`
   }
 `;
 
-export const ServiceButton = styled.button`
+export const ServiceButton = styled.div`
   width: 125px;
   height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: ${({ theme }) => theme.colors.grey300};
   border-radius: 20px;
-  border: none;
-  cursor: pointer;
+
+  [data-contrast] & {
+    color: ${({ theme }) => theme.colors.grey900};
+  }
 
   svg {
     width: 40px;

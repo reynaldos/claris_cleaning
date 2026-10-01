@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { BannerSection, ContentWrap } from "./page.style";
 
 import { PAGE_ROUTE } from "@/constants/info";
@@ -40,9 +39,7 @@ export default function Home() {
               <p>Trustworthy</p>
             </div>
           </span>
-          <Link href={PAGE_ROUTE.FREE_QUOTE}>
-            <Button aria-label="Book Your Cleaning">Book Your Cleaning Today</Button>
-          </Link>
+          <Button href={PAGE_ROUTE.FREE_QUOTE}>Book Your Cleaning Today</Button>
         </ContentWrap>
       </BannerSection>
 

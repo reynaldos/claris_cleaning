@@ -88,7 +88,7 @@ export const ContentWrap = styled.div`
     gap: 4px;
   }
 
-  button {
+  a {
     font-size: 1.25rem;
     padding: 18px;
   }
